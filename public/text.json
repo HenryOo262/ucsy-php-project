@@ -1,0 +1,64 @@
+
+{
+
+    "text" : [
+
+        {
+            "group" : [
+
+                    "the name of group1 lorem",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 1",
+                    
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 3",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 4",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 5",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 6",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 7"
+
+            ]
+        },
+
+        {
+            "group" : [
+
+                    "the name of group2 lorem",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 1",
+                    
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 3",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 4",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 5",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 6"
+
+            ]
+        },
+
+        {
+            "group" : [
+
+                    "the name of group3 lorem",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 1",
+                    
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2",
+
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 3"
+
+            ]
+        }
+
+    ]
+
+}

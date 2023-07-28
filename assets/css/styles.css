@@ -1,0 +1,31 @@
+
+
+/* GLOBAL STYLES */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* common flex box */
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.col{
+    flex-direction: column;
+}
+
+/* common flex box ends */

@@ -1,0 +1,83 @@
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 5px;
+}
+
+.header-wrapper * {
+    text-align: justify;
+    display: block;
+    margin: 10px;
+}
+
+.box1-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    align-items: center;
+
+    padding: 10px;
+    margin: 10px;
+    gap: 10px;
+}
+
+.box1-wrapper > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+
+.box1-wrapper label {
+    grid-column: 1;
+    width: 10vw;
+}
+
+.box1-wrapper input,
+.box1-wrapper select {
+    grid-column: 2;
+    width: 20vw;
+    padding: 5px;
+}
+
+.box2-wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.group-header-wrapper{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.column-wrapper{
+    display: grid;
+    grid-template-columns: 50% repeat(5, 1fr); 
+    place-items: center;
+
+    margin-bottom: 20px;
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    padding: 10px;
+    margin: 10px;
+}
+
+/* class to be used inside JS file */
+
+.no-match{
+    border-color: red;
+    color: red;
+}
+
+/* ends classes to be used inside JS file */
