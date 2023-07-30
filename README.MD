@@ -10,13 +10,13 @@ Clone the repository: `git clone https://github.com/HenryOo262/ucsy-assessment-f
 
 Before running the application, you need to set up some environment variables:
 
-Create a .env file in the root directory of the project.
+Create a config.php file in the root directory of the project.
 
-Inside the .env file, add the following environment variables:
+Inside the configuration file, add the following environment variables:
 
-* DB_HOST = localhost:3306
+* define('DB_HOST', 'localhost:3306');
 
-* DB_NAME = databaseName
+* define('DB_NAME', 'databaseName');
 
 Replace databaseName with the name of your database.
 
