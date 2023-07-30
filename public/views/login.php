@@ -35,7 +35,7 @@
                         <input type="password" name="password" required> <br>
                     </div>
                     <div class="flex row">
-                        <input type="submit">
+                        <button type="submit"> Log In </button>
                     </div>
                 </div>
             </form>
