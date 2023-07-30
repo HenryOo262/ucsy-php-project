@@ -3,11 +3,13 @@
 
     session_start();
 
+    require_once '../config.php';
+
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $servername = getenv("DB_HOST");
-    $database   = getenv("DB_NAME");
+    $servername = DB_HOST;
+    $database   = DB_NAME;
 
     try{
 
