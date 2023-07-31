@@ -1,10 +1,12 @@
 # UCSY PHP Project
 
+PHP project for the semester-based 'Teacher Evaulation Form' of my university.
+
 ## Installation
 
 To get started, follow these steps:
 
-Clone the repository: `git clone https://github.com/HenryOo262/ucsy-assessment-form`
+Clone the repository: `git clone https://github.com/HenryOo262/ucsy-php-project`
 
 ## Configuration
 
@@ -27,3 +29,7 @@ Open the terminal.
 Run the server using PHP: `php -S localhost:8000`
 
 Open your web browser and navigate to `http://localhost:8000/`
+
+## Database Setup 
+
+Download MySQL scripts from `` 

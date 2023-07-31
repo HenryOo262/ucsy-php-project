@@ -14,7 +14,7 @@
     try{
 
         // establish connection to verify admin log in
-        $check = new mysqli($servername,"checker","check2023",$database);
+        $check = new mysqli($servername,"validator","validator2023",$database);
     
     }catch(Exception $e){
 

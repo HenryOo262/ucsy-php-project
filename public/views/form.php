@@ -34,7 +34,7 @@
                 <div class="box1-wrapper">
                     <div>
                         <label for="semester"> Semester : </label>
-                        <select name="semester">
+                        <select name="semester" id="semester" onchange="populator()">
                             <?php
                                 for($i = 1; $i <= 9; $i += 1){
                                     echo "<option value='$i'> Semester $i </option>";
@@ -43,18 +43,81 @@
                         </select>
                     </div>
                     <div>
-                        <label for="academicYear">Academic Year : </label>
-                        <?php echo "<input name='academicYear' id='academicYear' type='text' placeholder='$year-$next' value='$year-$next' required>" ?>
+                        <label for="academicYear"> Academic Year : </label>
+                        <?php echo "<input name='academicYear' id='academicYear' type='text' oninput='validateAcademicYear()' placeholder='$year-$next' required>" ?>
                     </div>
                     <div>
-                        <label for="instructorName">Instructor Name : </label>
+                        <label for="instructorName"> Instructor Name : </label>
                         <input name="instructorName" id="instructorName" type="text" oninput="validateInstructorName()" placeholder="e.g, John Doe" required>
                     </div>
                     <div>
-                        <label for="classroom">Classroom : </label>
-                        <input name="classroom" id="classroom" type="text" oninput="validateClassroom()" placeholder="e.g, E-001" required>
+                        <label> Subject : </label>
+                        <select name="subject1" id="subject1">
+                            <?php
+                                for($i = 0; $i < count($subjects[0]); $i += 1){
+                                    echo "<option value='".$subjects[0][$i]."'>".$subjects[0][$i]."</option>";
+                                }
+                            ?>
+                        </select>
+                        <select name="subject2" id="subject2">
+                            <?php
+                                for($i = 0; $i < count($subjects[1]); $i += 1){
+                                    echo "<option value='".$subjects[1][$i]."'>".$subjects[1][$i]."</option>";
+                                }
+                            ?>
+                        </select>
+                        <select name="subject3" id="subject3">
+                            <?php
+                                for($i = 0; $i < count($subjects[2]); $i += 1){
+                                    echo "<option value='".$subjects[2][$i]."'>".$subjects[2][$i]."</option>";
+                                }
+                            ?>
+                        </select>
+                        <select name="subject4" id="subject4">
+                            <?php
+                                for($i = 0; $i < count($subjects[3]); $i += 1){
+                                    echo "<option value='".$subjects[3][$i]."'>".$subjects[3][$i]."</option>";
+                                }
+                            ?>
+                        </select>
+                        <select name="subject5" id="subject5">
+                            <?php
+                                for($i = 0; $i < count($subjects[4]); $i += 1){
+                                    echo "<option value='".$subjects[4][$i]."'>".$subjects[4][$i]."</option>";
+                                }
+                            ?>
+                        </select>
+                        <select name="subject6" id="subject6">
+                            <?php
+                                for($i = 0; $i < count($subjects[5]); $i += 1){
+                                    echo "<option value='".$subjects[5][$i]."'>".$subjects[5][$i]."</option>";
+                                }
+                            ?>
+                        </select>
+                        <select name="subject7" id="subject7">
+                            <?php
+                                for($i = 0; $i < count($subjects[6]); $i += 1){
+                                    echo "<option value='".$subjects[6][$i]."'>".$subjects[6][$i]."</option>";
+                                }
+                            ?>
+                        </select>
+                        <select name="subject8" id="subject8">
+                            <?php
+                                for($i = 0; $i < count($subjects[7]); $i += 1){
+                                    echo "<option value='".$subjects[7][$i]."'>".$subjects[7][$i]."</option>";
+                                }
+                            ?>
+                        </select>
+                        <select name="subject9" id="subject9">
+                            <?php
+                                for($i = 0; $i < count($subjects[8]); $i += 1){
+                                    echo "<option value='".$subjects[8][$i]."'>".$subjects[8][$i]."</option>";
+                                }
+                            ?>
+                        </select>
                     </div>
                 </div>
+                <!-- Instructor Information Ends -->
 
                 <!-- Assessment Points -->
                 <?php 
@@ -106,6 +169,7 @@
                     } // main loop ends
 
                 ?>
+                <!-- Assessment Points Ends -->
 
                 <div class="btn-wrapper">
                     <input type="submit" class="btn" id="btn">
@@ -117,6 +181,7 @@
 
     </body>
 
-    <script src="./assets/javascript/form.js"> </script>  
+    <script src="./assets/javascript/realtime-validation.js"> </script>  
+    <script src="./assets/javascript/subject-populator.js"> </script>  
     <!-- path relative to index.js  -->
 </html>
