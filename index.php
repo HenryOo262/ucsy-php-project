@@ -34,6 +34,9 @@ switch ($request) {
 
 function renderForm(){
 
+    $servername = DB_HOST;
+    $database   = DB_NAME;
+
     // import json data 
     $json = file_get_contents('./public/text.json');
 
@@ -41,25 +44,25 @@ function renderForm(){
     $data = json_decode($json,true);
 
     // connect to database
-    $conn = new mysqli(DB_HOST,"validator","validator2023",DB_NAME);
+    $conn = new mysqli($servername,"validator","validator2023",$database);
     if($conn->connect_error){
         die("Connection Failed");
     }
 
     // declare 2D array 
-    $subjects = array(
+    $courses = array(
         array(), array(), array(),
         array(), array(), array(),
         array(), array(), array()
     );
 
-    // fetch all the subjects and put them into 2D array
+    // fetch all the courses and put them into 2D array
     try{
         for($i=1; $i<=9; $i+=1){
-            $result = $conn->query("SELECT ID FROM subject WHERE semester='$i'");
+            $result = $conn->query("SELECT ID FROM course WHERE semester='$i'");
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
-                    array_push($subjects[$i],$row["ID"]);
+                    array_push($courses[$i],$row["ID"]);
                 }
             }
         }
@@ -68,6 +71,7 @@ function renderForm(){
     }
 
     require "./public/views/form.php";
+    $conn->close();
     exit;
 
 }

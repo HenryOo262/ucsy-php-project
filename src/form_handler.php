@@ -1,5 +1,7 @@
  <?php
 
+    require_once '../config.php';
+
     // form data
     $instructorName = $_POST["instructorName"];
     $academicYear   = $_POST["academicYear"];
@@ -11,17 +13,16 @@
     }
 
     // variables for db connection
-    $servername  = getenv("DB_HOST");
-    $database    = getenv("DB_NAME");
+    $servername  = DB_HOST;
+    $database    = DB_NAME;
     $username    = "root";
     $password    = "root";
 
-    // database connection 
-    try{
-        $conn = new mysqli($servername, $username, $password, $database);
-    }catch(Exception $e){
-        echo $e;
-        exit;
+    // db connection
+    $conn = new mysqli($servername, $username, $password, $database);
+    
+    if($conn->connect_error){
+        die("Connection Failed");
     }
 
     // processes form data
@@ -29,18 +30,9 @@
     $academicYear   = $conn->real_escape_string($academicYear);
     $classroom      = $conn->real_escape_string($classroom);
 
-    $query = "SELECT * FROM points 
-    WHERE instructor = '$instructorName' AND academic_year = '$academicYear' 
-    AND semester = $semester AND classroom = '$classroom'";
-
-    $result = $conn->query($query);
-
-    if($result->num_rows > 0){
-        echo "exists";
-    }else{
-        echo "doesn't exist";
-    }
-
+    //prepare and bind
+    $prepare = $conn->prepare("");
+    
     // close connection
     $conn->close();
 

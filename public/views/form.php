@@ -20,9 +20,9 @@
 
         <!-- header content -->
         <header class="header-wrapper">
-            <h1>General Assessment Form</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil totam asperiores maxime perferendis maiores mollitia quisquam fugit omnis unde repudiandae.</p>
-            <?php echo "<p>$year-$next Academic Year</p>"; ?>
+            <h1>ဆရာအကဲဖြတ်ပုံစံ</h1>
+            <p>သင်တန်းဆရာများနှင့် သင်တန်းများဆီသို့ ကျောင်းသားများ၏ အထွေထွေအကဲဖြတ်မှုပုံစံ</p>
+            <?php echo "<p>$year-$next စာသင်နှစ်</p>"; ?>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione illum, ipsa vitae mollitia tempore, nihil nemo dolorum, officia odio consectetur dolores beatae! Ab et, vitae unde illo temporibus cumque. Adipisci suscipit ullam ducimus repellendus ipsum animi obcaecati nisi neque, quisquam quae magnam atque quos dolorem placeat excepturi iure. Ut, doloribus fugiat architecto, ipsum distinctio nobis eveniet accusantium quam exercitationem dolores aspernatur consectetur doloremque rerum corporis tenetur molestiae placeat nulla amet quaerat ducimus! At provident tempore molestiae nesciunt doloremque voluptate culpa reprehenderit vero quasi commodi consectetur minus, accusamus reiciendis temporibus. Voluptates dolorum alias ipsum aliquid vero deserunt repudiandae cupiditate iusto incidunt.</p>
         </header>
 
@@ -51,67 +51,67 @@
                         <input name="instructorName" id="instructorName" type="text" oninput="validateInstructorName()" placeholder="e.g, John Doe" required>
                     </div>
                     <div>
-                        <label> Subject : </label>
-                        <select name="subject1" id="subject1">
+                        <label> Course : </label>
+                        <select name="course1" id="course1">
                             <?php
-                                for($i = 0; $i < count($subjects[0]); $i += 1){
-                                    echo "<option value='".$subjects[0][$i]."'>".$subjects[0][$i]."</option>";
+                                for($i = 0; $i < count($courses[0]); $i += 1){
+                                    echo "<option value='".$courses[0][$i]."'>".$courses[0][$i]."</option>";
                                 }
                             ?>
                         </select>
-                        <select name="subject2" id="subject2">
+                        <select name="course2" id="course2">
                             <?php
-                                for($i = 0; $i < count($subjects[1]); $i += 1){
-                                    echo "<option value='".$subjects[1][$i]."'>".$subjects[1][$i]."</option>";
+                                for($i = 0; $i < count($courses[1]); $i += 1){
+                                    echo "<option value='".$courses[1][$i]."'>".$courses[1][$i]."</option>";
                                 }
                             ?>
                         </select>
-                        <select name="subject3" id="subject3">
+                        <select name="course3" id="course3">
                             <?php
-                                for($i = 0; $i < count($subjects[2]); $i += 1){
-                                    echo "<option value='".$subjects[2][$i]."'>".$subjects[2][$i]."</option>";
+                                for($i = 0; $i < count($courses[2]); $i += 1){
+                                    echo "<option value='".$courses[2][$i]."'>".$courses[2][$i]."</option>";
                                 }
                             ?>
                         </select>
-                        <select name="subject4" id="subject4">
+                        <select name="course4" id="course4">
                             <?php
-                                for($i = 0; $i < count($subjects[3]); $i += 1){
-                                    echo "<option value='".$subjects[3][$i]."'>".$subjects[3][$i]."</option>";
+                                for($i = 0; $i < count($courses[3]); $i += 1){
+                                    echo "<option value='".$courses[3][$i]."'>".$courses[3][$i]."</option>";
                                 }
                             ?>
                         </select>
-                        <select name="subject5" id="subject5">
+                        <select name="course5" id="course5">
                             <?php
-                                for($i = 0; $i < count($subjects[4]); $i += 1){
-                                    echo "<option value='".$subjects[4][$i]."'>".$subjects[4][$i]."</option>";
+                                for($i = 0; $i < count($courses[4]); $i += 1){
+                                    echo "<option value='".$courses[4][$i]."'>".$courses[4][$i]."</option>";
                                 }
                             ?>
                         </select>
-                        <select name="subject6" id="subject6">
+                        <select name="course6" id="course6">
                             <?php
-                                for($i = 0; $i < count($subjects[5]); $i += 1){
-                                    echo "<option value='".$subjects[5][$i]."'>".$subjects[5][$i]."</option>";
+                                for($i = 0; $i < count($courses[5]); $i += 1){
+                                    echo "<option value='".$courses[5][$i]."'>".$courses[5][$i]."</option>";
                                 }
                             ?>
                         </select>
-                        <select name="subject7" id="subject7">
+                        <select name="course7" id="course7">
                             <?php
-                                for($i = 0; $i < count($subjects[6]); $i += 1){
-                                    echo "<option value='".$subjects[6][$i]."'>".$subjects[6][$i]."</option>";
+                                for($i = 0; $i < count($courses[6]); $i += 1){
+                                    echo "<option value='".$courses[6][$i]."'>".$courses[6][$i]."</option>";
                                 }
                             ?>
                         </select>
-                        <select name="subject8" id="subject8">
+                        <select name="course8" id="course8">
                             <?php
-                                for($i = 0; $i < count($subjects[7]); $i += 1){
-                                    echo "<option value='".$subjects[7][$i]."'>".$subjects[7][$i]."</option>";
+                                for($i = 0; $i < count($courses[7]); $i += 1){
+                                    echo "<option value='".$courses[7][$i]."'>".$courses[7][$i]."</option>";
                                 }
                             ?>
                         </select>
-                        <select name="subject9" id="subject9">
+                        <select name="course9" id="course9">
                             <?php
-                                for($i = 0; $i < count($subjects[8]); $i += 1){
-                                    echo "<option value='".$subjects[8][$i]."'>".$subjects[8][$i]."</option>";
+                                for($i = 0; $i < count($courses[8]); $i += 1){
+                                    echo "<option value='".$courses[8][$i]."'>".$courses[8][$i]."</option>";
                                 }
                             ?>
                         </select>
@@ -134,11 +134,11 @@
                                 <div class='group-header-wrapper'>
                                     <p> " . $data['text'][$j]['group'][0] . " </p>
                                 </div>
-                                <div class='group-header-wrapper'> <p> Totally Disagree </p> </div>
-                                <div class='group-header-wrapper'> <p> Disagree </p> </div>
-                                <div class='group-header-wrapper'> <p> Neutral </p> </div>
-                                <div class='group-header-wrapper'> <p> Agree </p> </div>
-                                <div class='group-header-wrapper'> <p> Totally Agree </p> </div>
+                                <div class='group-header-wrapper'> <p> လုံးဝသဘောမတူပါ </p> </div>
+                                <div class='group-header-wrapper'> <p> သဘောမတူပါ </p> </div>
+                                <div class='group-header-wrapper'> <p> ကြားနေ </p> </div>
+                                <div class='group-header-wrapper'> <p> သဘောတူပါသည် </p> </div>
+                                <div class='group-header-wrapper'> <p> လုံးဝသဘောတူပါသည် </p> </div>
                             </div>";
 
                             // iterate through each text-group array
@@ -181,7 +181,7 @@
 
     </body>
 
-    <script src="./assets/javascript/realtime-validation.js"> </script>  
-    <script src="./assets/javascript/subject-populator.js"> </script>  
+    <script src="./assets/javascript/realtime-validator.js"> </script>  
+    <script src="./assets/javascript/course-populator.js"> </script>  
     <!-- path relative to index.js  -->
 </html>
