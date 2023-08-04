@@ -1,4 +1,3 @@
-
 <?php
 
     session_start();
@@ -9,45 +8,46 @@
     $password = $_POST["password"];
 
     $servername = DB_HOST;
-    $database   = DB_NAME;
+    $database = DB_NAME;
 
     // establish connection to verify admin login
-    $check = new mysqli($servername,"validator","validator2023",$database);
+    $check = new mysqli($servername, "validator", "validator2023", $database);
 
-    if($check->connect_error){
+    if ($check->connect_error) {
         die("Connection Failed");
     }
 
-    // check if admin login username exists in admin table
-    $query = "SELECT * FROM admin WHERE username = '$username'";
-    $result = $check->query($query);
+    // check if admin login username exists in admin table using prepared statement
+    $query = "SELECT * FROM admin WHERE username = ?";
+    $stmt = $check->prepare($query);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
 
-    try{
-        if($result->num_rows > 0){
+    try {
+        if ($result->num_rows > 0) {
             // if username is found
             $row = $result->fetch_assoc();
             $hashedpassword = $row["password"];
-            // close connection after retriveing 
-            $check->close();
             // compare login password and stored password of that admin
-            if(password_verify($password,$hashedpassword)){
+            if (password_verify($password, $hashedpassword)) {
                 $_SESSION["loginFail"] = false;
                 header("Location: /admin");
-            }else{
+            } else {
                 $_SESSION["loginFail"] = true;
                 header("Location: /admin");
                 exit;
             }
-        }else{
+        } else {
             // if username is not in admin table
             $_SESSION["loginFail"] = true;
             header("Location: /admin");
             exit;
         }
-    }catch(Exception $e){
+    } catch (Exception $e) {
         echo $e->getMessage();
     }
 
     $_SESSION["logged"] = true;
-
 ?>

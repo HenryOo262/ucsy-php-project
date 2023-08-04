@@ -42,21 +42,21 @@
     $selectTeaches = $conn->prepare("SELECT teaches.ID as teaches_id, instructor, academicYear, course, course.ID as course_id, name, semester FROM teaches JOIN course ON teaches.course = course.ID WHERE instructor = ? AND academicYear = ? and course.ID = ?");
     $selectTeaches->bind_param("sss", $instructor, $academicYear, $course);
     $selectTeaches->execute();
-    $resultPoint = $selectTeaches->get_result();
+    $resultTeaches = $selectTeaches->get_result();
 
     // teaches row ID 
     $teachesID = null;
     
     // if row for teaches doesn't exist
-    if($resultPoint->num_rows == 0){
+    if($resultTeaches->num_rows == 0){
         $insertTeaches->bind_param("sss", $instructor, $academicYear, $course);
         $insertTeaches->execute();
     }
 
     // to get the ID column of teaches
     $selectTeaches->execute();
-    $resultPoint = $selectTeaches->get_result();
-    $row = $resultPoint->fetch_assoc();
+    $resultTeaches = $selectTeaches->get_result();
+    $row = $resultTeaches->fetch_assoc();
     $teachesID = $row["teaches_id"];
     
     // if point rows for that teachesID doesn't exist, create them
