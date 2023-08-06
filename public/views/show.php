@@ -13,11 +13,20 @@
     <body>
         <div class="card-wrapper">
             <?php 
+                echo "<div class='card-attribute'>
+                    <li>Record ID</li>
+                    <li>Instructor Name</li>
+                    <li>Instructor Faculty</li>
+                    <li>Academic Year</li>
+                    <li>Course</li>
+                    <li>Record Details</li>
+                    <li>Delete Record</li>
+                </div>";
                 for($i=0; $i<count($data); $i+=1){
                     echo "<form method='POST' action='../../src/search_handler.php' class='card'>";
                         echo "
                             <div>
-                                <ul class='attribute-list'> ";
+                                <ul class='list-item'> ";
                                     for($j=0; $j<count($data[$i]); $j+=1) {
                                         echo "<li>". $data[$i][$j] . "</li>";
                                     }

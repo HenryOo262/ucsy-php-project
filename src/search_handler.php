@@ -44,19 +44,19 @@
         
         if(empty($_POST["academicYear"]) && !empty($_POST["instructorName"])) {
             // if academicYear is empty 
-            $query = "SELECT * FROM teaches NATURAL JOIN instructor WHERE instructor_name LIKE '%$instructor%'";
+            $query = "SELECT * FROM teaches NATURAL JOIN instructor NATURAL JOIN faculty WHERE instructor_name LIKE '%$instructor%'";
         } 
         else if(!empty($_POST["academicYear"]) && empty($_POST["instructorName"])) {
             // if instructorName is empty
-            $query = "SELECT * FROM teaches NATURAL JOIN instructor WHERE academicYear = '$academicYear'";
+            $query = "SELECT * FROM teaches NATURAL JOIN instructor NATURAL JOIN faculty WHERE academicYear = '$academicYear'";
         }
         else if(!empty($_POST["academicYear"]) && !empty($_POST["instructorName"])) {
             // if none is empty
-            $query = "SELECT * FROM teaches NATURAL JOIN instructor WHERE instructor_name LIKE '%$instructor%' AND academicYear = '$academicYear'";
+            $query = "SELECT * FROM teaches NATURAL JOIN instructor NATURAL JOIN faculty WHERE instructor_name LIKE '%$instructor%' AND academicYear = '$academicYear'";
         }
         else if(empty($_POST["academicYear"]) && empty($_POST["instructorName"])) {
             // if both empty
-            $query = "SELECT * FROM teaches NATURAL JOIN instructor";
+            $query = "SELECT * FROM teaches NATURAL JOIN instructor NATURAL JOIN faculty";
         }
 
         // execute query
@@ -69,9 +69,9 @@
             $temp = array();
             array_push($temp,$row["teaches_id"]);
             array_push($temp,$row["instructor_name"]);
+            array_push($temp,$row["faculty_name"]);
             array_push($temp,$row["academicYear"]);
             array_push($temp,$row["course_id"]);
-            array_push($temp,$row["faculty_id"]);
             array_push($data,$temp);
         }
         $_SESSION["searchData"] = $data;

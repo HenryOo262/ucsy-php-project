@@ -15,12 +15,12 @@
             <?php
                 // Atrribute names
                 echo "<div class='details details-attribute'>
-                    <div> Question </div>
-                    <div> Totally Disagree </div>
-                    <div> Disagree </div>
-                    <div> Neutral </div>
-                    <div> Agree </div>
-                    <div> Totally agree </div>
+                    <div> မေးခွန်း </div>
+                    <div> လုံးဝသဘောမတူပါ </div>
+                    <div> သဘောမတူပါ </div>
+                    <div> ကြားနေ </div>
+                    <div> သဘောတူပါသည် </div>
+                    <div> လုံးဝသဘောတူပါသည် </div>
                 </div>";
 
                 // Data
