@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION["loginFail"])){
+    if(!isset($_SESSION["loginFail"])) {
         $_SESSION["loginFail"] = false;
     }
 ?>
@@ -22,7 +22,7 @@
                     <h2> Admin Login </h2>
                     <img src="./assets/image/ucsy-logo.png" class="logo" alt="ucsy-logo">
                     <?php
-                        if($_SESSION["loginFail"]){
+                        if($_SESSION["loginFail"]) {
                             echo "<div style='background-color:red; color:white; paddin:10px;'> Wrong Login Info, Please Try Again! </div>";
                         }
                     ?>

@@ -42,7 +42,7 @@
             
     }
 
-    function renderForm(){
+    function renderForm() {
         $servername = DB_HOST;
         $database   = DB_NAME;
 
@@ -54,7 +54,7 @@
 
         // connect to database
         $conn = new mysqli($servername,"validator","validator2023",$database);
-        if($conn->connect_error){
+        if($conn->connect_error) {
             die("Connection Failed");
         }
 
@@ -64,7 +64,7 @@
         // fetch all the courses and put them into 2D array
         // there are 9 semesters
         try{
-            for($i=1; $i<=9; $i+=1){
+            for($i=1; $i<=9; $i+=1) {
                 $temp = array();
                 $result = $conn->query("SELECT course_id FROM course WHERE semester='$i'");
                 if($result->num_rows > 0){
@@ -74,7 +74,7 @@
                 }
                 $courses[$i-1] = $temp;
             }
-        }catch(Exception $e){
+        }catch(Exception $e) {
             echo $e->getMessage();
         }
 
@@ -83,8 +83,8 @@
         exit;
     }
 
-    function renderAdmin(){
-        if($_SESSION["logged"]){
+    function renderAdmin() {
+        if($_SESSION["logged"]) {
             require "./public/views/dashboard.php";
             exit;
         }else{
@@ -93,8 +93,8 @@
         }
     }
 
-    function renderSearch(){
-        if($_SESSION["logged"]){
+    function renderSearch() {
+        if($_SESSION["logged"]) {
             require "./public/views/search.php";
             exit;
         }else{
@@ -103,8 +103,8 @@
         }
     }
 
-    function renderShow(){
-        if($_SESSION["logged"]){
+    function renderShow() {
+        if($_SESSION["logged"]) {
             $data = $_SESSION["searchData"];
             require "./public/views/show.php";
             exit;
@@ -114,8 +114,8 @@
         }
     }
 
-    function renderDetails(){
-        if($_SESSION["logged"]){
+    function renderDetails() {
+        if($_SESSION["logged"]) {
             $data = $_SESSION["detailsData"];
             require "./public/views/details.php";
             exit;

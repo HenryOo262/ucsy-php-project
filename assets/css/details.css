@@ -1,11 +1,11 @@
-.details-wrapper{
+.details-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.details{
+.details {
     display: grid;
     grid-template-columns: 60% repeat(5,1fr);
     justify-content: center;
@@ -17,16 +17,16 @@
     margin: 20px;
 }
 
-.details-attribute{
+.details-attribute {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
 
-.details-question{
+.details-question {
     text-align: left;
 }
 
-.details-number{
+.details-number {
     text-align: center;
 }

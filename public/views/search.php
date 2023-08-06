@@ -17,7 +17,7 @@
                     <h3> Search Records </h3>
                     <div>
                         <label for="instructor"> Instructor : </label> 
-                        <input type="text" name="instructorName" required> <br>
+                        <input type="text" name="instructorName"> <br>
                     </div>
                     <div>
                         <label for="academicYear"> Academic Year : </label> 

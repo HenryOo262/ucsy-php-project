@@ -2,34 +2,34 @@
 
 /* GLOBAL STYLES */
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
 /* common flex box */
 
-.flex{
+.flex {
     display: flex;
     align-items: center; /* center vertically */
     justify-content: center; /* center horizontally */
 }
 
-.row{
+.row {
     flex-direction: row;
 }
 
-.col{
+.col {
     flex-direction: column;
 }
 
 /* common flex box ends */
 
-.hide{
+.hide {
     display: none;
 }

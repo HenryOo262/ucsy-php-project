@@ -9,16 +9,18 @@
     
     $conn = new mysqli($servername,$_SESSION["username"],$_SESSION["password"],$database);
 
-    if($conn->connect_error){
+    if($conn->connect_error) {
         die("Connection Failed");
     }
 
     // DBMS operations on Teaches Table
-    if($_POST["submit_button"] == "select"){
+    if($_POST["submit_button"] == "select") {
         select();
-    }else if($_POST["submit_button"] == "delete"){
+    }
+    else if($_POST["submit_button"] == "delete") {
         delete();
-    }else if($_POST["submit_button"] == "details"){
+    }
+    else if($_POST["submit_button"] == "details") {
         details();
     }
 
@@ -35,17 +37,26 @@
     }
     
     // select operation
-    function select(){
+    function select() {
         global $conn;
         $instructor = $conn->real_escape_string($_POST["instructorName"]);
-
-        // if instructor name is only input
-        $query = "SELECT * FROM teaches NATURAL JOIN instructor WHERE instructor_name LIKE '%$instructor%'";
-    
-        // execute this if input academicYear is not empty
-        if(isset($_POST["academicYear"]) && !empty($_POST["academicYear"])){
-            $academicYear = $conn->real_escape_string($_POST["academicYear"]);
+        $academicYear = $conn->real_escape_string($_POST["academicYear"]);
+        
+        if(empty($_POST["academicYear"]) && !empty($_POST["instructorName"])) {
+            // if academicYear is empty 
+            $query = "SELECT * FROM teaches NATURAL JOIN instructor WHERE instructor_name LIKE '%$instructor%'";
+        } 
+        else if(!empty($_POST["academicYear"]) && empty($_POST["instructorName"])) {
+            // if instructorName is empty
+            $query = "SELECT * FROM teaches NATURAL JOIN instructor WHERE academicYear = '$academicYear'";
+        }
+        else if(!empty($_POST["academicYear"]) && !empty($_POST["instructorName"])) {
+            // if none is empty
             $query = "SELECT * FROM teaches NATURAL JOIN instructor WHERE instructor_name LIKE '%$instructor%' AND academicYear = '$academicYear'";
+        }
+        else if(empty($_POST["academicYear"]) && empty($_POST["instructorName"])) {
+            // if both empty
+            $query = "SELECT * FROM teaches NATURAL JOIN instructor";
         }
 
         // execute query
@@ -54,7 +65,7 @@
         // data array
         $data = array();
 
-        while($row = $result->fetch_assoc()){
+        while($row = $result->fetch_assoc()) {
             $temp = array();
             array_push($temp,$row["teaches_id"]);
             array_push($temp,$row["instructor_name"]);
@@ -69,7 +80,7 @@
     }
 
     // extract details of the record
-    function details(){
+    function details() {
         global $conn;
         $query = "SELECT * FROM point NATURAL JOIN question WHERE teaches_id = " . $_POST["teachesID"];
         $result = $conn->query($query);
@@ -77,7 +88,7 @@
         // data array
         $data = array();
 
-        while($row = $result->fetch_assoc()){
+        while($row = $result->fetch_assoc()) {
             $temp = array();
             array_push($temp, $row['question']);
             array_push($temp, $row['totally_disagree']);

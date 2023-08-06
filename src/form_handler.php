@@ -11,7 +11,7 @@
     // db connection
     $conn = new mysqli($servername, $username, $password, $database);
     
-    if($conn->connect_error){
+    if($conn->connect_error) {
         die("Connection Failed");
     }
 
@@ -66,11 +66,12 @@
     $resultTeaches = $selectTeaches->get_result();
     
     // check if record exist in teaches table
-    if($resultTeaches->num_rows == 0){
+    if($resultTeaches->num_rows == 0) {
         // ADMIN MUST UPDATE THE TEACHES TABLE PRIOR TO STUDENTS' EVALUATION
         // if record doesn't exist
         die("ERROR - admin hasn't updated or subject and instructor mismatch.");
-    }else{
+    }
+    else {
         // if exists - get teachesID
         $selectTeaches->execute();
         $resultTeaches = $selectTeaches->get_result();
@@ -84,8 +85,8 @@
     $selectPoint->execute();
     $resultPoint = $selectPoint->get_result();
 
-    if($resultPoint->num_rows == 0){
-        for($i=1; $i<=$count; $i+=1){
+    if($resultPoint->num_rows == 0) {
+        for($i=1; $i<=$count; $i+=1) {
             $insertPoint->bind_param("ii", $teachesID, $i);
             $insertPoint->execute();
         }

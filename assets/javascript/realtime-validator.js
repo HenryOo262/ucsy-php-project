@@ -29,8 +29,7 @@ const patternInstructorName = /^(?!Daw|U|\s)(\D)+(\d)*$/i
 // i indicates "the whole pattern is case-insensitive"
 
 
-function validateInstructorName(){
-
+function validateInstructorName() {
     const instructorNameValue = instructorName.value;
     
     // check pattern
@@ -44,11 +43,9 @@ function validateInstructorName(){
 
     // check if both flags are true
     checkButton()
-
 }
 
-function validateAcademicYear(){
-
+function validateAcademicYear() {
     const academicYearValue = academicYear.value;
     
     // check pattern
@@ -68,11 +65,9 @@ function validateAcademicYear(){
 
     // check if both flags are true
     checkButton()
-
 }
 
-function checkButton(){
-
+function checkButton() {
     // if both input field credentials are satisfied
     if(flag1 && flag2){
         // button is enable
@@ -81,5 +76,4 @@ function checkButton(){
         // if not satisfied, button still disabled
         btn.setAttribute("disabled",true)
     }
-
 }

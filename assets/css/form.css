@@ -49,12 +49,12 @@
     margin-bottom: 40px;
 }
 
-.group-header-wrapper{
+.group-header-wrapper {
     font-size: 16px;
     font-weight: bold;
 }
 
-.column-wrapper{
+.column-wrapper {
     display: grid;
     grid-template-columns: 50% repeat(5, 1fr); 
     place-items: center;
@@ -62,20 +62,20 @@
     margin-bottom: 20px;
 }
 
-.btn-wrapper{
+.btn-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn{
+.btn {
     padding: 10px;
     margin: 10px;
 }
 
 /* class to be used inside JS file */
 
-.no-match{
+.no-match {
     border-color: red;
     color: red;
 }

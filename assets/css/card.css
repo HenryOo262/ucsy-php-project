@@ -1,4 +1,4 @@
-.card-wrapper{
+.card-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
     margin: 20px;
 }
 
-.card{
+.card {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -20,11 +20,11 @@
     transition-duration: 0.1s;
 }
 
-.card:hover{
+.card:hover {
     transform: scale(1.01);
 }
 
-.card input{
+.card input {
     position: absolute;
     visibility: hidden;
     height: 0;
@@ -32,7 +32,7 @@
     margin: 0; 
 }
 
-.attribute-list{
+.attribute-list {
     list-style: none;
     padding: 0;
 
@@ -43,22 +43,22 @@
     text-align: center;       /* align text inside div in center */
 }
 
-.del{
+.del {
     padding: 5px;
     border-style: none;
     border-radius: 4px;
-    color: white;
+    color: #ffffff;
     background-color: #D9544D;
 
     transition-property: transform;
     transition-duration: 0.2s;
 }
 
-.del:hover{
+.del:hover {
     transform: scale(1.1);
 }
 
-.det{
+.det {
     padding: 5px;
     border-style: none;
     border-radius: 4px;
@@ -69,6 +69,6 @@
     transition-duration: 0.2s;
 }
 
-.det:hover{
+.det:hover {
     transform: scale(1.1);
 }

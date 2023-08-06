@@ -54,63 +54,63 @@
                         <label> Course : </label>
                         <select name="course1" id="course1">
                             <?php
-                                for($i = 0; $i < count($courses[0]); $i += 1){
+                                for($i = 0; $i < count($courses[0]); $i += 1) {
                                     echo "<option value='".$courses[0][$i]."'>".$courses[0][$i]."</option>";
                                 }
                             ?>
                         </select>
                         <select name="course2" id="course2">
                             <?php
-                                for($i = 0; $i < count($courses[1]); $i += 1){
+                                for($i = 0; $i < count($courses[1]); $i += 1) {
                                     echo "<option value='".$courses[1][$i]."'>".$courses[1][$i]."</option>";
                                 }
                             ?>
                         </select>
                         <select name="course3" id="course3">
                             <?php
-                                for($i = 0; $i < count($courses[2]); $i += 1){
+                                for($i = 0; $i < count($courses[2]); $i += 1) {
                                     echo "<option value='".$courses[2][$i]."'>".$courses[2][$i]."</option>";
                                 }
                             ?>
                         </select>
                         <select name="course4" id="course4">
                             <?php
-                                for($i = 0; $i < count($courses[3]); $i += 1){
+                                for($i = 0; $i < count($courses[3]); $i += 1) {
                                     echo "<option value='".$courses[3][$i]."'>".$courses[3][$i]."</option>";
                                 }
                             ?>
                         </select>
                         <select name="course5" id="course5">
                             <?php
-                                for($i = 0; $i < count($courses[4]); $i += 1){
+                                for($i = 0; $i < count($courses[4]); $i += 1) {
                                     echo "<option value='".$courses[4][$i]."'>".$courses[4][$i]."</option>";
                                 }
                             ?>
                         </select>
                         <select name="course6" id="course6">
                             <?php
-                                for($i = 0; $i < count($courses[5]); $i += 1){
+                                for($i = 0; $i < count($courses[5]); $i += 1) {
                                     echo "<option value='".$courses[5][$i]."'>".$courses[5][$i]."</option>";
                                 }
                             ?>
                         </select>
                         <select name="course7" id="course7">
                             <?php
-                                for($i = 0; $i < count($courses[6]); $i += 1){
+                                for($i = 0; $i < count($courses[6]); $i += 1) {
                                     echo "<option value='".$courses[6][$i]."'>".$courses[6][$i]."</option>";
                                 }
                             ?>
                         </select>
                         <select name="course8" id="course8">
                             <?php
-                                for($i = 0; $i < count($courses[7]); $i += 1){
+                                for($i = 0; $i < count($courses[7]); $i += 1) {
                                     echo "<option value='".$courses[7][$i]."'>".$courses[7][$i]."</option>";
                                 }
                             ?>
                         </select>
                         <select name="course9" id="course9">
                             <?php
-                                for($i = 0; $i < count($courses[8]); $i += 1){
+                                for($i = 0; $i < count($courses[8]); $i += 1) {
                                     echo "<option value='".$courses[8][$i]."'>".$courses[8][$i]."</option>";
                                 }
                             ?>
@@ -123,7 +123,7 @@
                 <?php 
 
                     // iterate through the text array - the array contains text-groups(objects)
-                    for($j = 0; $j < count($data['text']); $j+=1){
+                    for($j = 0; $j < count($data['text']); $j+=1) {
 
                         // each text-group become sub-forms 
                         echo "<div class='box2-wrapper'>"; 
@@ -142,7 +142,7 @@
                             </div>";
 
                             // iterate through each text-group array
-                            for($k = 1; $k < count($data['text'][$j]['group']); $k += 1){
+                            for($k = 1; $k < count($data['text'][$j]['group']); $k += 1) {
 
                                 // each iteration is a row
                                 echo "<div class='column-wrapper'>"; 

@@ -11,20 +11,16 @@ var currentlyVisible = 0;
 
 // semester one's box is in index 0
 // semester nine's box is in index 8, etc
-for(i=0; i<=8; i++){
-
+for(i=0; i<=8; i++) {
     course[i] = document.querySelector(`#course${i+1}`);
-
     // all boxes are hidden except semester one's box when page is 
     // loaded
     if(i!=0){
         course[i].classList.add("hide");
     }
-
 }
 
-function populator(){
-
+function populator() {
     // populate the boxes based on selected semester
     let selected = semester.value;
 
@@ -33,8 +29,7 @@ function populator(){
 
     // swap old with new
     currentlyVisible = selected-1;
-
+    
     // make the new box visible
     course[currentlyVisible].classList.remove("hide");
-
 }

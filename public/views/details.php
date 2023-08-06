@@ -24,12 +24,12 @@
                 </div>";
 
                 // Data
-                for($i=0; $i<count($data); $i+=1){
+                for($i=0; $i<count($data); $i+=1) {
                     echo "<div class='details'>";
-                    for($j=0; $j<count($data[$i]); $j+=1){
-                        if($j == 0){
+                    for($j=0; $j<count($data[$i]); $j+=1) {
+                        if($j == 0) {
                             echo "<div class='details-question'>" . $data[$i][$j] . "</div>";
-                        }else{
+                        }else {
                             echo "<div class='details-number'>" . $data[$i][$j] . "</div>";
                         }
                     }

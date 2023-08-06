@@ -1,4 +1,4 @@
-body{
+body {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -10,7 +10,7 @@ body{
     background-size: cover;
 }
 
-.login-form{
+.login-form {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -22,12 +22,12 @@ body{
     padding: 20px;
 }
 
-.login-form *{
+.login-form * {
     padding: 5px;
     margin: 5px;
 }
 
-.login-form input[type="text"], .login-form input[type="password"]{
+.login-form input[type="text"], .login-form input[type="password"] {
     border: 1px solid #ccc;
     width: 100%;
     padding: 8px;
@@ -35,7 +35,7 @@ body{
     box-sizing: border-box;
 }
 
-.logo{
+.logo {
     width: 100px;
     height: 100px;
 }

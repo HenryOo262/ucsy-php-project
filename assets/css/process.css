@@ -1,4 +1,4 @@
-.input-box{
+.input-box {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -11,12 +11,12 @@
     padding: 20px;
 }
 
-.input-box *{
+.input-box * {
     padding: 5px;
     margin: 5px;
 }
 
-.input-box input[type="text"]{
+.input-box input[type="text"] {
     border: 1px solid #ccc;
     width: 100%;
     padding: 8px;

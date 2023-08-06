@@ -18,7 +18,7 @@
                         echo "
                             <div>
                                 <ul class='attribute-list'> ";
-                                    for($j=0; $j<count($data[$i]); $j+=1){
+                                    for($j=0; $j<count($data[$i]); $j+=1) {
                                         echo "<li>". $data[$i][$j] . "</li>";
                                     }
                                     echo "<li><button class='det' name='submit_button' value='details'>Details</button></li>";
