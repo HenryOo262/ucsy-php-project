@@ -1,0 +1,38 @@
+.input-box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+    width: 300px;
+
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.input-box *{
+    padding: 5px;
+    margin: 5px;
+}
+
+.input-box input[type="text"]{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.input-box button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-box button[type="submit"]:hover {
+    background-color: #45a049;
+}

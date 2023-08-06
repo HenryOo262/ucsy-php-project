@@ -16,8 +16,8 @@ html{
 
 .flex{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* center vertically */
+    justify-content: center; /* center horizontally */
 }
 
 .row{

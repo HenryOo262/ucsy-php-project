@@ -2,7 +2,7 @@
 
     session_start();
 
-    require_once '../config.php';
+    require_once "../config.php";
 
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -32,6 +32,9 @@
             $hashedpassword = $row["password"];
             // compare login password and stored password of that admin
             if (password_verify($password, $hashedpassword)) {
+                // keep username and password in session for further use
+                $_SESSION["username"] = $_POST["username"];
+                $_SESSION["password"] = $_POST["password"];
                 $_SESSION["loginFail"] = false;
                 header("Location: /admin");
             } else {

@@ -28,7 +28,11 @@ body{
 }
 
 .login-form input[type="text"], .login-form input[type="password"]{
+    border: 1px solid #ccc;
     width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
 .logo{

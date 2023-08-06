@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="./assets/image/cufavicon.ico">
         <link rel="stylesheet" href="./assets/css/styles.css">
-        <link rel="stylesheet" href="./assets/css/admin.css">
+        <link rel="stylesheet" href="./assets/css/login.css">
     </head>
     <body>
         <div class="login-form">
@@ -26,12 +26,12 @@
                             echo "<div style='background-color:red; color:white; paddin:10px;'> Wrong Login Info, Please Try Again! </div>";
                         }
                     ?>
-                    <div>
-                        <label for="username"> Username : </label>
+                    <div> 
+                        <label for="username"> Username : </label> 
                         <input type="text" name="username" required> <br>
                     </div>
                     <div>
-                        <label for="password"> Password : </label>
+                        <label for="password"> Password : </label> 
                         <input type="password" name="password" required> <br>
                     </div>
                     <div class="flex row">

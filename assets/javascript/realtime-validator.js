@@ -13,12 +13,19 @@ var flag2 = false
 // call the checkButton when page is loaded so the button is disabled
 document.addEventListener("DOMContentLoaded",checkButton);
 
+// empty the values when page is backwarded
+window.addEventListener('pageshow',(event)=>{
+        academicYear.value = ''
+        instructorName.value = ''
+});
+
 const patternAcademicYear = /[2][0][\d][\d]-[2][0][\d][\d]/
 
-const patternInstructorName = /^(?!Daw|U|\s)(\D)+/i
+const patternInstructorName = /^(?!Daw|U|\s)(\D)+(\d)*$/i
 // ^ indicates "start of the string"
 // ^(?!x) indicates "start of the string not followed by x"
-// \D+ indicates "one or more non-digits"
+// \D+ indicates "one or more non-digits" and \d* zero or more digits
+// $ indicates end of the string
 // i indicates "the whole pattern is case-insensitive"
 
 
