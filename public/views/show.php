@@ -28,7 +28,7 @@
                             <div>
                                 <ul class='list-item'> ";
                                     for($j=0; $j<count($data[$i]); $j+=1) {
-                                        echo "<li>". $data[$i][$j] . "</li>";
+                                        echo "<li>".$data[$i][$j]."</li>";
                                     }
                                     echo "<li><button class='det' name='submit_button' value='details'>Details</button></li>";
                                     echo "<li><button class='del' name='submit_button' value='delete' onclick='return showConfirmation()'>Delete</button></li>";

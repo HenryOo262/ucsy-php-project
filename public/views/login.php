@@ -16,27 +16,29 @@
         <link rel="stylesheet" href="./assets/css/login.css">
     </head>
     <body class="school-bg">
-        <div class="login-form">
-            <form method="POST" action="./src/login_handler.php">
-                <div class="flex col">
+        <div class="login-box">
+            <form action="./src/login_handler.php" method="POST">
+                <div class="flex row">
                     <h2> Admin Login </h2>
+                </div>
+                <div class="flex row">
                     <img src="./assets/image/ucsy-logo.png" class="logo" alt="ucsy-logo">
-                    <?php
-                        if($_SESSION["loginFail"]) {
-                            echo "<div style='background-color:red; color:white; paddin:10px;'> Wrong Login Info, Please Try Again! </div>";
-                        }
-                    ?>
-                    <div> 
-                        <label for="username"> Username : </label> 
-                        <input type="text" name="username" required> <br>
-                    </div>
-                    <div>
-                        <label for="password"> Password : </label> 
-                        <input type="password" name="password" required> <br>
-                    </div>
-                    <div class="flex row">
-                        <button type="submit"> Log In </button>
-                    </div>
+                </div>
+                <?php
+                    if($_SESSION["loginFail"]) {
+                        echo "<div class='error-message'> Wrong Login Info, Please Try Again ! </div>";
+                    }
+                ?>
+                <div> 
+                    <label for="username"> Username : </label> 
+                    <input type="text" name="username" required> <br>
+                </div>
+                <div>
+                    <label for="password"> Password : </label> 
+                    <input type="password" name="password" required> <br>
+                </div>
+                <div class="flex row">
+                    <button type="submit"> Log In </button>
                 </div>
             </form>
         </div>

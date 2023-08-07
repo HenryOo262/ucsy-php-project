@@ -14,28 +14,31 @@
 
     switch ($request) {
         
-        case '':
-        case '/':
+        case "":
+        case "/":
             renderForm();
             break;
 
-        case '/home':
-            header('Location: /');  
+        case "/home":
+            header("Location: /");  
             break;
 
-        case '/admin':
+        case "/admin":
             renderAdmin();
             break;
 
-        case '/admin/search':
+        case "/admin/search":
             renderSearch();
             break;
 
-        case '/admin/search/show':
+        case "/admin/search/show":
             renderShow();
 
-        case '/admin/search/show/details':
+        case "/admin/search/show/details":
             renderDetails();
+
+        case "/admin/update":
+            renderUpdate();
             
         default:
             http_response_code(404);
@@ -107,7 +110,7 @@
         if($_SESSION["logged"]) {
             require "./public/views/dashboard.php";
             exit;
-        }else{
+        } else {
             require "./public/views/login.php";
             exit;
         }
@@ -117,7 +120,7 @@
         if($_SESSION["logged"]) {
             require "./public/views/search.php";
             exit;
-        }else{
+        } else {
             header("Location: /admin");
             exit;
         }
@@ -128,7 +131,7 @@
             $data = $_SESSION["searchData"];
             require "./public/views/show.php";
             exit;
-        }else{
+        } else {
             header("Location: /admin");
             exit;
         }
@@ -139,7 +142,30 @@
             $data = $_SESSION["detailsData"];
             require "./public/views/details.php";
             exit;
-        }else{
+        } else {
+            header("Location: /admin");
+            exit;
+        }
+    }
+
+    function renderUpdate() {
+        $servername = DB_HOST;
+        $database   = DB_NAME;
+
+        $conn = new mysqli($servername,$_SESSION["username"],$_SESSION["password"],$database);
+        if($conn->connect_error) {
+            die("Connection Failed");
+        }
+
+        if($_SESSION["logged"]) {
+            $result = $conn->query("SELECT course_id FROM course");
+            $data = array();
+            while($row = $result->fetch_assoc()) {
+                array_push($data,$row["course_id"]);
+            }
+            require "./public/views/update.php";
+            exit;
+        } else {
             header("Location: /admin");
             exit;
         }

@@ -13,19 +13,19 @@
     <body class="school-bg">
         <div class="input-box">
             <form action="../src/search_handler.php" method="POST">
-                <div class="flex col">
+                <div class="flex row">
                     <h3> Search Records </h3>
-                    <div>
-                        <label for="instructor"> Instructor : </label> 
-                        <input type="text" name="instructorName"> <br>
-                    </div>
-                    <div>
-                        <label for="academicYear"> Academic Year : </label> 
-                        <input type="text" name="academicYear"> <br>
-                    </div>
-                    <div class="flex row">
-                        <button type="submit" name="submit_button" value="select"> Search </button>
-                    </div>
+                </div>
+                <div>
+                    <label for="instructor"> Instructor : </label> 
+                    <input type="text" name="instructorName"> <br>
+                </div>
+                <div>
+                    <label for="academicYear"> Academic Year : </label> 
+                    <input type="text" name="academicYear"> <br>
+                </div>
+                <div class="flex row">
+                    <button type="submit" name="submit_button" value="select"> Search </button>
                 </div>
             </form>
         </div>

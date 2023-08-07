@@ -13,8 +13,9 @@
     <body>
         <?php 
             // default data
-            $year = (int)date('y') + 2000;
+            $year = date('Y');
             $next = $year + 1;
+            // data to pass to radio partials
             $row  = 1;
         ?>
 
@@ -71,12 +72,11 @@
                     // iterate through qgroups array
                     for($j = 0; $j < count($qgroups); $j+=1) {
 
-                        // each element of qgroups array become sub-forms 
+                        // each element of qgroups array become question group headers
                         echo "<div class='box2-wrapper'>"; 
 
-                            // the very first row of each sub-form contains the headings
-                            // the rest of the rows contain questions of the text-group
-                            echo "<div class='column-wrapper'>
+
+                        echo "<div class='column-wrapper'>
                                 <div class='group-header-wrapper'>
                                     <p> " . $qgroups[$j] . " </p>
                                 </div>
@@ -87,20 +87,17 @@
                                 <div class='group-header-wrapper'> <p> လုံးဝသဘောတူပါသည် </p> </div>
                             </div>";
 
-                            // iterate through each text-group array
+                            // for each element of qgroups, iterate through questions array
                             for($k = 0; $k < count($questions[$j]); $k += 1) {
 
                                 // each iteration is a row
                                 echo "<div class='column-wrapper'>"; 
 
                                     // each text element is the first column
-                                    echo "<div>";
-                                    echo "<p>" . $questions[$j][$k] . "</p>";
-                                    echo "</div>";
+                                    echo "<div> <p>" . $questions[$j][$k] . "</p> </div>";
 
                                     // calls radio partial for the other columns
                                     // passes row number to use as input name
-                                    // the include path is relative to the index.php in root dir
                                     include "./public/partials/radio.php";
 
                                     // increment for next row
@@ -120,14 +117,11 @@
                 <div class="btn-wrapper">
                     <input type="submit" class="btn" id="btn">
                 </div>
-                
+
             </form> 
         </div>
         <!-- Assessment Form ends -->
-
     </body>
-
     <script src="./assets/javascript/realtime-validator.js"> </script>  
     <script src="./assets/javascript/course-populator.js"> </script>  
-    <!-- path relative to index.js  -->
 </html>
