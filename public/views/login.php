@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="./assets/css/styles.css">
         <link rel="stylesheet" href="./assets/css/login.css">
     </head>
-    <body>
+    <body class="school-bg">
         <div class="login-form">
             <form method="POST" action="./src/login_handler.php">
                 <div class="flex col">

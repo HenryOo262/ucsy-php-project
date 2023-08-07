@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../assets/css/styles.css">
         <link rel="stylesheet" href="../assets/css/process.css">
     </head>
-    <body>
+    <body class="school-bg">
         <div class="input-box">
             <form action="../src/search_handler.php" method="POST">
                 <div class="flex col">

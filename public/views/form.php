@@ -20,10 +20,10 @@
 
         <!-- header content -->
         <header class="header-wrapper">
-            <h1>ဆရာအကဲဖြတ်ပုံစံ</h1>
-            <p>သင်တန်းဆရာများနှင့် သင်တန်းများဆီသို့ ကျောင်းသားများ၏ အထွေထွေအကဲဖြတ်မှုပုံစံ</p>
-            <?php echo "<p>$year-$next စာသင်နှစ်</p>"; ?>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione illum, ipsa vitae mollitia tempore, nihil nemo dolorum, officia odio consectetur dolores beatae! Ab et, vitae unde illo temporibus cumque. Adipisci suscipit ullam ducimus repellendus ipsum animi obcaecati nisi neque, quisquam quae magnam atque quos dolorem placeat excepturi iure. Ut, doloribus fugiat architecto, ipsum distinctio nobis eveniet accusantium quam exercitationem dolores aspernatur consectetur doloremque rerum corporis tenetur molestiae placeat nulla amet quaerat ducimus! At provident tempore molestiae nesciunt doloremque voluptate culpa reprehenderit vero quasi commodi consectetur minus, accusamus reiciendis temporibus. Voluptates dolorum alias ipsum aliquid vero deserunt repudiandae cupiditate iusto incidunt.</p>
+            <h1>ရန်ကုန်ကွန်ပျူတာတက္ကသိုလ်</h1>
+            <p>သင်ခန်းစာနှင့် ဆရာဆရာမများအား ကျောင်းသားကျောင်းသူများမှ ယေဘုယျ အကဲဖြတ်ခြင်းမေးခွန်းလွှာ</p>
+            <?php echo "<p>$year-$next ပညာသင်နှစ်</p>"; ?>
+            <p>မှတ်ချက်။  ။ ဆရာဆရာမများနှင့် ကျောင်း​သူကျောင်းသားများအကြား အရေအသွေးပြည့်ဝ၍ပိုမိုကောင်းမွန်သော သင်ကြား၊သင်ယူမှု ပတ်ဝန်းကျင်တစ်ခုဖြစ်စေရန်နှင့် အကောင်းဆုံး သင်ကြားသင်ယူမှုပုံစံရရှိစေရန်အတွက် ကျောင်းသူကျောင်းသားများထံမှ သုံးသပ်မှုကို ရှာဖွေရန် ရန်ကုန်ကွန်ပျူတာတက္ကသိုလ်မှ ဤမေးခွန်းလွှာကိုပြုလုပ်ထားသည်။</p>
         </header>
 
         <!-- Assessment Form -->
@@ -52,69 +52,15 @@
                     </div>
                     <div>
                         <label> Course : </label>
-                        <select name="course1" id="course1">
-                            <?php
-                                for($i = 0; $i < count($courses[0]); $i += 1) {
-                                    echo "<option value='".$courses[0][$i]."'>".$courses[0][$i]."</option>";
-                                }
-                            ?>
-                        </select>
-                        <select name="course2" id="course2">
-                            <?php
-                                for($i = 0; $i < count($courses[1]); $i += 1) {
-                                    echo "<option value='".$courses[1][$i]."'>".$courses[1][$i]."</option>";
-                                }
-                            ?>
-                        </select>
-                        <select name="course3" id="course3">
-                            <?php
-                                for($i = 0; $i < count($courses[2]); $i += 1) {
-                                    echo "<option value='".$courses[2][$i]."'>".$courses[2][$i]."</option>";
-                                }
-                            ?>
-                        </select>
-                        <select name="course4" id="course4">
-                            <?php
-                                for($i = 0; $i < count($courses[3]); $i += 1) {
-                                    echo "<option value='".$courses[3][$i]."'>".$courses[3][$i]."</option>";
-                                }
-                            ?>
-                        </select>
-                        <select name="course5" id="course5">
-                            <?php
-                                for($i = 0; $i < count($courses[4]); $i += 1) {
-                                    echo "<option value='".$courses[4][$i]."'>".$courses[4][$i]."</option>";
-                                }
-                            ?>
-                        </select>
-                        <select name="course6" id="course6">
-                            <?php
-                                for($i = 0; $i < count($courses[5]); $i += 1) {
-                                    echo "<option value='".$courses[5][$i]."'>".$courses[5][$i]."</option>";
-                                }
-                            ?>
-                        </select>
-                        <select name="course7" id="course7">
-                            <?php
-                                for($i = 0; $i < count($courses[6]); $i += 1) {
-                                    echo "<option value='".$courses[6][$i]."'>".$courses[6][$i]."</option>";
-                                }
-                            ?>
-                        </select>
-                        <select name="course8" id="course8">
-                            <?php
-                                for($i = 0; $i < count($courses[7]); $i += 1) {
-                                    echo "<option value='".$courses[7][$i]."'>".$courses[7][$i]."</option>";
-                                }
-                            ?>
-                        </select>
-                        <select name="course9" id="course9">
-                            <?php
-                                for($i = 0; $i < count($courses[8]); $i += 1) {
-                                    echo "<option value='".$courses[8][$i]."'>".$courses[8][$i]."</option>";
-                                }
-                            ?>
-                        </select>
+                        <?php   
+                            for($i=1; $i<=9; $i+=1) {
+                                echo "<select name='course$i' id='course$i'>";
+                                    for($j = 0; $j < count($courses[$i-1]); $j += 1) {
+                                        echo "<option value='".$courses[$i-1][$j]."'>".$courses[$i-1][$j]."</option>";
+                                    }
+                                echo "</select>";
+                            }
+                        ?>
                     </div>
                 </div>
                 <!-- Instructor Information Ends -->
@@ -122,17 +68,17 @@
                 <!-- Assessment Points -->
                 <?php 
 
-                    // iterate through the text array - the array contains text-groups(objects)
-                    for($j = 0; $j < count($data['text']); $j+=1) {
+                    // iterate through qgroups array
+                    for($j = 0; $j < count($qgroups); $j+=1) {
 
-                        // each text-group become sub-forms 
+                        // each element of qgroups array become sub-forms 
                         echo "<div class='box2-wrapper'>"; 
 
                             // the very first row of each sub-form contains the headings
                             // the rest of the rows contain questions of the text-group
                             echo "<div class='column-wrapper'>
                                 <div class='group-header-wrapper'>
-                                    <p> " . $data['text'][$j]['group'][0] . " </p>
+                                    <p> " . $qgroups[$j] . " </p>
                                 </div>
                                 <div class='group-header-wrapper'> <p> လုံးဝသဘောမတူပါ </p> </div>
                                 <div class='group-header-wrapper'> <p> သဘောမတူပါ </p> </div>
@@ -142,14 +88,14 @@
                             </div>";
 
                             // iterate through each text-group array
-                            for($k = 1; $k < count($data['text'][$j]['group']); $k += 1) {
+                            for($k = 0; $k < count($questions[$j]); $k += 1) {
 
                                 // each iteration is a row
                                 echo "<div class='column-wrapper'>"; 
 
                                     // each text element is the first column
                                     echo "<div>";
-                                    echo "<p>" . $data['text'][$j]['group'][$k] . "</p>";
+                                    echo "<p>" . $questions[$j][$k] . "</p>";
                                     echo "</div>";
 
                                     // calls radio partial for the other columns

@@ -5,6 +5,7 @@
     transform: translate(-50%,-50%);
 
     width: 300px;
+    background-color: #ffffff;
 
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -25,8 +26,8 @@
 }
 
 .input-box button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #40e0d0;
+    color: #000000;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -34,5 +35,5 @@
 }
 
 .input-box button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #008080;
 }

@@ -46,35 +46,55 @@
         $servername = DB_HOST;
         $database   = DB_NAME;
 
-        // import json data 
-        $json = file_get_contents('./public/text.json');
-
-        // parse json data into array
-        $data = json_decode($json,true);
-
         // connect to database
         $conn = new mysqli($servername,"validator","validator2023",$database);
         if($conn->connect_error) {
             die("Connection Failed");
         }
 
-        // declare courses array 
+        // declare arrays 
         $courses = array();
+        $questions = array();
+        $qgroups = array();
 
-        // fetch all the courses and put them into 2D array
-        // there are 9 semesters
-        try{
+        // fetch all the courses 
+        // there are 9 semesters as fixed values
+        try {
             for($i=1; $i<=9; $i+=1) {
                 $temp = array();
                 $result = $conn->query("SELECT course_id FROM course WHERE semester='$i'");
                 if($result->num_rows > 0){
-                    while($row = $result->fetch_assoc()){
+                    while($row = $result->fetch_assoc()) {
                         array_push($temp,$row["course_id"]);
                     }
                 }
                 $courses[$i-1] = $temp;
             }
-        }catch(Exception $e) {
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
+
+        // fetch question groups
+        try {
+            $result = $conn->query("SELECT * FROM qgroup");
+            while($row = $result->fetch_assoc()){
+                array_push($qgroups,$row["qgroup"]);
+            }
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
+
+        // fetch questions
+        try {
+            for($i=0; $i<count($qgroups); $i+=1) {
+                $temp = array();
+                $result = $conn->query("SELECT question FROM question WHERE qgroup_id = $i+1");
+                while($row = $result->fetch_assoc()) {
+                    array_push($temp,$row["question"]);
+                }
+                array_push($questions, $temp);
+            }
+        } catch(Exception $e) {
             echo $e->getMessage();
         }
 

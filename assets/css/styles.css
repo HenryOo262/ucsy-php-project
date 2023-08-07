@@ -33,3 +33,11 @@ html {
 .hide {
     display: none;
 }
+
+.school-bg {
+        background-image: url('../image/ucsy.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+}

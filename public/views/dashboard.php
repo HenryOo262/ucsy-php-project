@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="./assets/css/styles.css">
         <link rel="stylesheet" href="./assets/css/dashboard.css">
     </head>
-    <body>
+    <body class="school-bg">
         <div class="menu-box">
             <div class="menu">
                 <!--
