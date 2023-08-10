@@ -149,20 +149,21 @@
     }
 
     function renderUpdate() {
-        $servername = DB_HOST;
-        $database   = DB_NAME;
-
-        $conn = new mysqli($servername,$_SESSION["username"],$_SESSION["password"],$database);
-        if($conn->connect_error) {
-            die("Connection Failed");
-        }
-
         if($_SESSION["logged"]) {
+            $servername = DB_HOST;
+            $database   = DB_NAME;
+
+            $conn = new mysqli($servername,$_SESSION["username"],$_SESSION["password"],$database);
+            if($conn->connect_error) {
+                die("Connection Failed");
+            }
             $result = $conn->query("SELECT course_id FROM course");
+
             $data = array();
             while($row = $result->fetch_assoc()) {
                 array_push($data,$row["course_id"]);
             }
+            
             require "./public/views/update.php";
             exit;
         } else {

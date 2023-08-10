@@ -11,21 +11,22 @@
         <link rel="stylesheet" href="../assets/css/process.css">
     </head>
     <body class="school-bg">
-        <div class="input-box">
-            <form action="../update_handler.php" method="POST">
-                <div class="flex row">
-                    <h3> Update Records </h3>
-                </div>
-                <div>
-                    <label for="instructorName">Instructor Name : </label>
-                    <input type="text" name="instructorName"> 
-                </div>
-                <div>
-                    <label for="academicYear">Academic Year : </label>
+        <form action="../src/search_handler.php" method="GET" class="login-box">
+            <div class="flex row">
+                <h2> Search Records </h2>
+            </div>
+            <div class="input-wrapper">
+                <label for="instructorName">
+                    <input type="text" name="instructorName">
+                </label> 
+            </div>
+            <div class="input-wrapper">
+                <label for="academicYear">
                     <input type="text" name="academicYear"> 
-                </div>
-                <div>
-                    <label for="course"> Course : </label>
+                </label> 
+            </div>
+            <div class="input-wrapper">
+                <label for="course"> 
                     <input type="text" name="course" list="courses"> 
                     <datalist id="courses">
                         <?php 
@@ -34,12 +35,12 @@
                             }
                         ?>
                     </datalist>
-                </div>
-                <div class="flex row">
-                    <button type="submit" onclick="return showConfirmation()"> Insert </button> 
-                </div>
-            </form>
-        </div>
+                </label>
+            </div>
+            <div class="flex row">
+                <button type="submit" name="submit_button" value="select"> Search </button>
+            </div>
+        </form>
     </body>
     <script src="../assets/javascript/submit-confirmation.js"> </script>
 </html>

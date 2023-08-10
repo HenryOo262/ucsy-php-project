@@ -65,22 +65,19 @@
     margin-bottom: 20px;
 }
 
-.btn-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .btn {
-    padding: 10px;
+    padding: 10px 20px;
     margin: 10px;
 }
 
 /* class to be used inside JS file */
 
 .no-match {
-    border-color: red;
     color: red;
+}
+
+.no-match:focus {
+    outline-color: red;
 }
 
 /* ends classes to be used inside JS file */

@@ -1,53 +1,122 @@
 
-/* CSS for data processing pages */
+/* CSS for admin login page and deta retrieval page forms */
 
 body {
     position: relative;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
     background-color: #f4f4f4;
 }
 
-.input-box {
+.login-box {
     position: absolute;
-    left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    min-height: 235px;
+    height: auto;
+    min-width: 320px;
+    max-width: 412px;
+    width: 338px;
 
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 36px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: white;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.55);
+    border: 1px solid rgba(0,0,0,0.4);
 }
 
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-h3 {
+h2 {
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
-input[type="text"] {
-    border: 1px solid #ccc;
-    width: 100%;
+.logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    background-color: red;
+    color: white;
+    padding: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 80%;
+}
+
+input[type="text"],
+input[type="password"] {
+    min-width: 100%;
     padding: 8px;
     margin-bottom: 20px;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border: 1px solid #000000;
+    border-radius: 1px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline-color: #04acd2;
+}
+
+label::after {
+    background-color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+
+    display: block;
+    position: absolute;
+    top:  -15%;
+    left: 5%;
+
+    padding: 0px 3px;
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+[for="username"]::after {
+    content: "Username";
+}
+
+label[for="password"]::after {
+    content: "Password";
+}
+
+label[for="instructorName"]::after {
+    content: "Instructor Name";
+    left: 5%;
+}
+
+label[for="academicYear"]::after {
+    content: "Academic Year";
+    left: 5%;
+}
+
+label[for="course"]::after {
+    content: "Course";
+    left: 5%;
 }
 
 button[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #04acd2;
     color: white;
-    border: none;
     padding: 10px 20px;
+    border: none;
     cursor: pointer;
-    border-radius: 4px;
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #039bbd;
 }

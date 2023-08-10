@@ -23,7 +23,7 @@
                     <li>Delete Record</li>
                 </div>";
                 for($i=0; $i<count($data); $i+=1){
-                    echo "<form method='POST' action='../../src/search_handler.php' class='card'>";
+                    echo "<form method='GET' action='../../src/search_handler.php' class='card'>";
                         echo "
                             <div>
                                 <ul class='list-item'> ";

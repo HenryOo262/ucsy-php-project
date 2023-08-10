@@ -13,34 +13,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="./assets/image/cufavicon.ico">
         <link rel="stylesheet" href="./assets/css/styles.css">
-        <link rel="stylesheet" href="./assets/css/login.css">
+        <link rel="stylesheet" href="./assets/css/process.css">
     </head>
     <body class="school-bg">
-        <div class="login-box">
-            <form action="./src/login_handler.php" method="POST">
-                <div class="flex row">
-                    <h2> Admin Login </h2>
-                </div>
-                <div class="flex row">
-                    <img src="./assets/image/ucsy-logo.png" class="logo" alt="ucsy-logo">
-                </div>
-                <?php
-                    if($_SESSION["loginFail"]) {
-                        echo "<div class='error-message'> Wrong Login Info, Please Try Again ! </div>";
-                    }
-                ?>
-                <div> 
-                    <label for="username"> Username : </label> 
-                    <input type="text" name="username" required> <br>
-                </div>
-                <div>
-                    <label for="password"> Password : </label> 
-                    <input type="password" name="password" required> <br>
-                </div>
-                <div class="flex row">
-                    <button type="submit"> Log In </button>
-                </div>
-            </form>
-        </div>
+        <form action="./src/login_handler.php" method="POST" class="login-box">
+            <div class="flex row">
+                <h2> Admin Login </h2>
+            </div>
+            <div class="flex row">
+                <img src="./assets/image/ucsy-logo.png" class="logo" alt="ucsy-logo">
+            </div>
+            <?php
+                if($_SESSION["loginFail"]) {
+                    echo "<div class='error-message'> Wrong Login Info, Please Try Again ! </div>";
+                }
+            ?>
+            <div class="input-wrapper">
+                <label for="username"> 
+                    <input type="text" name="username" required> 
+                </label>
+            </div>
+            <div class="input-wrapper">
+                <label for="password">
+                    <input type="password" name="password" required>
+                </label> 
+            </div>
+            <div class="flex row">
+                <button type="submit" name="log_button" value="login"> Log In </button>
+            </div>
+        </form>
     </body>
 </html>

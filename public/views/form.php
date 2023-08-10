@@ -114,7 +114,7 @@
                 ?>
                 <!-- Assessment Points Ends -->
 
-                <div class="btn-wrapper">
+                <div class="flex row">
                     <input type="submit" class="btn" id="btn">
                 </div>
 

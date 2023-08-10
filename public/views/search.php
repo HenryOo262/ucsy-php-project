@@ -11,23 +11,23 @@
         <link rel="stylesheet" href="../assets/css/process.css">
     </head>
     <body class="school-bg">
-        <div class="input-box">
-            <form action="../src/search_handler.php" method="POST">
-                <div class="flex row">
-                    <h3> Search Records </h3>
-                </div>
-                <div>
-                    <label for="instructor"> Instructor : </label> 
-                    <input type="text" name="instructorName"> <br>
-                </div>
-                <div>
-                    <label for="academicYear"> Academic Year : </label> 
-                    <input type="text" name="academicYear"> <br>
-                </div>
-                <div class="flex row">
-                    <button type="submit" name="submit_button" value="select"> Search </button>
-                </div>
-            </form>
-        </div>
+        <form action="../src/search_handler.php" method="GET" class="login-box">
+            <div class="flex row">
+                <h2> Search Records </h2>
+            </div>
+            <div class="input-wrapper">
+                <label for="instructorName">
+                    <input type="text" name="instructorName">
+                </label> 
+            </div>
+            <div class="input-wrapper">
+                <label for="academicYear">
+                    <input type="text" name="academicYear"> 
+                </label> 
+            </div>
+            <div class="flex row">
+                <button type="submit" name="submit_button" value="select"> Search </button>
+            </div>
+        </form>
     </body>
 </html>

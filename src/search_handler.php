@@ -14,13 +14,13 @@
     }
 
     // DBMS operations on Teaches Table
-    if($_POST["submit_button"] == "select") {
+    if($_GET["submit_button"] == "select") {
         select();
     }
-    else if($_POST["submit_button"] == "delete") {
+    else if($_GET["submit_button"] == "delete") {
         delete();
     }
-    else if($_POST["submit_button"] == "details") {
+    else if($_GET["submit_button"] == "details") {
         details();
     }
 
@@ -82,7 +82,7 @@
     // extract details of the record
     function details() {
         global $conn;
-        $query = "SELECT * FROM point NATURAL JOIN question WHERE teaches_id = " . $_POST["teachesID"];
+        $query = "SELECT * FROM point NATURAL JOIN question WHERE teaches_id = " . $_GET["teachesID"];
         $result = $conn->query($query);
 
         // data array
