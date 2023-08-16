@@ -1,60 +1,95 @@
 
 /* CSS for admin dashboard */
 
-.menu-box {
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.menu-wrapper {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
 
-    width: 60vh;
-    height: 60vh;
-
-    padding: 20px;
-}
-
-.menu-box * {
-    padding: 5px;
-    margin: 5px;
-}
-
-.menu {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr 1fr; 
-    width: 100%; 
-    height: 100%; 
-    gap: 20px;
-}
-
-.menu > a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-item {
     text-decoration: none;
-    color: black;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    color: #000000;
+    background-color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0px 20px;
+
+    height: 150px;
+    width: 150px;
+
+    box-shadow: 0 2px 3px rgba(0,0,0,0.55);
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 2px;
 
     transition-property: transform;
-    transition-duration: 0.2s;
+    transition-duration: 0.4s;
 }
 
-.menu > a:hover {
-    transform: scale(1.1);
-}
-
-button[type="submit"] {
+.icon {
+    width: 100%;
+    height: 80%;
     background-color: #04acd2;
-    color: white;
+}
+
+.icon > span {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.title {
+    width: 100%;
+    height: 20%;
+
+    background-color: #deded8;
+    font-family: 'Roboto', sans-serif;
+
+    transition-property: all;
+    transition-duration: 0.4s;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+}
+
+.menu-item:hover > .title {
+    height: 40%;
+}
+
+.btn-wrapper {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    bottom: 5%;
+}
+
+.btn {
+    background-color: #04acd2;
+    color: #ffffff;
     padding: 10px 20px;
-    margin-top: 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 2px;
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.btn:hover {
     background-color: #039bbd;
 }
