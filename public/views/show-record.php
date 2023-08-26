@@ -15,12 +15,12 @@
             <?php 
                 echo "<div class='card-attribute'>
                     <li>Record ID</li>
-                    <li>Instructor Name</li>
-                    <li>Instructor Faculty</li>
+                    <li>Instructor</li>
+                    <li>Faculty</li>
                     <li>Academic Year</li>
                     <li>Course</li>
                     <li>Record Details</li>
-                    <li>Delete Record</li>
+                    <li>Update Record</li>
                 </div>";
                 for($i=0; $i<count($data); $i+=1){
                     echo "<form method='GET' action='../../src/search_handler.php' class='card'>";

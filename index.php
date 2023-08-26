@@ -28,17 +28,17 @@
             break;
 
         case "/admin/search":
-            renderSearch();
+            renderSearchRecord();
             break;
 
         case "/admin/search/show":
-            renderShow();
+            renderShowRecord();
 
         case "/admin/search/show/details":
-            renderDetails();
+            renderDetailsRecord();
 
-        case "/admin/update":
-            renderUpdate();
+        case "/admin/create":
+            renderCreateRecord();
             
         default:
             http_response_code(404);
@@ -116,9 +116,9 @@
         }
     }
 
-    function renderSearch() {
+    function renderSearchRecord() {
         if($_SESSION["logged"]) {
-            require "./public/views/search.php";
+            require "./public/views/search-record.php";
             exit;
         } else {
             header("Location: /admin");
@@ -126,10 +126,10 @@
         }
     }
 
-    function renderShow() {
+    function renderShowRecord() {
         if($_SESSION["logged"]) {
             $data = $_SESSION["searchData"];
-            require "./public/views/show.php";
+            require "./public/views/show-record.php";
             exit;
         } else {
             header("Location: /admin");
@@ -137,10 +137,10 @@
         }
     }
 
-    function renderDetails() {
+    function renderDetailsRecord() {
         if($_SESSION["logged"]) {
             $data = $_SESSION["detailsData"];
-            require "./public/views/details.php";
+            require "./public/views/details-record.php";
             exit;
         } else {
             header("Location: /admin");
@@ -148,7 +148,7 @@
         }
     }
 
-    function renderUpdate() {
+    function renderCreateRecord() {
         if($_SESSION["logged"]) {
             $servername = DB_HOST;
             $database   = DB_NAME;
@@ -164,7 +164,7 @@
                 array_push($data,$row["course_id"]);
             }
             
-            require "./public/views/update.php";
+            require "./public/views/create-record.php";
             exit;
         } else {
             header("Location: /admin");

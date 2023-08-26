@@ -26,28 +26,12 @@
                     Search Records 
                 </div>
             </a>
-            <a class="menu-item" href="/admin/search">
+            <a class="menu-item" href="/admin/create">
                 <div class="icon flex col">
                     <span class="material-icons"> storage </span>
                 </div>
                 <div class="title flex col">
-                    Update Records 
-                </div>
-            </a>
-            <a class="menu-item" href="/admin/search">
-                <div class="icon flex col">
-                    <span class="material-icons"> people </span>
-                </div>
-                <div class="title flex col">
-                    Manage Instructors
-                </div>
-            </a>
-            <a class="menu-item" href="/admin/search">
-                <div class="icon flex col">
-                <span class="material-icons"> delete </span>
-                </div>
-                <div class="title flex col">
-                    Bulk Deletion
+                    Create Records 
                 </div>
             </a>
         </div>

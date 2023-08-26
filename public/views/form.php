@@ -114,6 +114,13 @@
                 ?>
                 <!-- Assessment Points Ends -->
 
+                <div class="comment-wrapper">
+                    <div> Any Comment : </div>
+                    <div>
+                        <textarea rows="4" cols="50" name="comment"> </textarea>
+                    </div>
+                </div>
+
                 <div class="flex row">
                     <input type="submit" class="btn" id="btn">
                 </div>

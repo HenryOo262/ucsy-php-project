@@ -20,6 +20,7 @@
     $academicYear   = $_POST["academicYear"];
     $semester       = $_POST["semester"];
     $course         = $_POST["course$semester"];
+    $comment        = $_POST["comment"];
 
     // question count
     $count = ($conn->query("SELECT * FROM question"))->num_rows;
@@ -31,11 +32,6 @@
 
     // teaches row ID 
     $teachesID = null;
-
-    // processes form data
-    $instructor     = $conn->real_escape_string($instructor);
-    $academicYear   = $conn->real_escape_string($academicYear);
-    $course         = $conn->real_escape_string($course);
 
     // create new rows in point table if rows do not exist
     $insertPoint   = $conn->prepare("INSERT INTO point (teaches_id, question_id) VALUES (?,?)");

@@ -29,7 +29,7 @@
     // delete operation
     function delete() {
         global $conn;
-        $query = "DELETE FROM teaches WHERE teaches_id = " . $_POST["teachesID"];
+        $query = "DELETE FROM teaches WHERE teaches_id = " . $_GET["teachesID"];
 
         $conn->query($query);
 

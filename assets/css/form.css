@@ -70,6 +70,24 @@
     margin: 10px;
 }
 
+.comment-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+.comment-wrapper > div {
+    padding: 10px;
+}
+
+.comment-wrapper textarea {
+    padding: 10px 20px;
+    resize: none;
+}
+
 /* class to be used inside JS file */
 
 .no-match {
