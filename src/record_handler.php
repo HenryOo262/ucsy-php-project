@@ -104,27 +104,25 @@
         $teachesID = $conn->real_escape_string($_GET["teachesID"]);
         $query = "
             SELECT * 
-            FROM teaches JOIN instructor 
-            ON teaches.instructor_id = instructor.instructor_id
+            FROM teaches JOIN instructor JOIN faculty
+            ON teaches.instructor_id = instructor.instructor_id 
+            AND instructor.faculty_id = faculty.faculty_id
             WHERE teaches_id='$teachesID'
         ";
         $result = $conn->query($query);
-        $data = array();
         $row = $result->fetch_assoc();
+
+        // associative array
+        $data = array();
 
         // assign values to associative array
         $data["instructorName"] = $row["instructor_name"];
-        $data["email"] = $row["email"];
-        
-        $fid     = $row["faculty_id"];
-        $fresult = $conn->query("SELECT faculty_name FROM faculty WHERE faculty_id='$fid'");
-        $fname   = $fresult->fetch_assoc();
-
-        $data["faculty"] = $fname["faculty_name"];
-        $data["academicYear"] = $row["academicYear"];
-        $data["course"] = $row["course_id"];
-        $data["semester"] = $row["semester_id"];
-        $data["teachesID"] = $teachesID;
+        $data["email"]          = $row["email"];
+        $data["faculty"]        = $row["faculty_name"];
+        $data["academicYear"]   = $row["academicYear"];
+        $data["course"]         = $row["course_id"];
+        $data["semester"]       = $row["semester_id"];
+        $data["teachesID"]      = $teachesID;
 
         $_SESSION["updateData"] = $data;
         header("Location: /admin/search/update");
@@ -148,7 +146,7 @@
         // execute query
         $result = $conn->query($query);
     
-        // data array
+        // associative array
         $data = array();
 
         while($row = $result->fetch_assoc()) {

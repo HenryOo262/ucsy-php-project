@@ -195,12 +195,6 @@
             // get courses for suggestion
             $course = fetchCourse($conn);
 
-            // get faculties for suggestion
-            $faculty = fetchFaculty($conn);
-
-            // get instructor data for suggestion 
-            $instructor = fetchInstructorData($conn);
-
             $data = $_SESSION["updateData"];
             require "./public/views/update.php";
             exit;

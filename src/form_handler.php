@@ -106,4 +106,6 @@
     // close connection
     $conn->close();
 
+    header("Location: /");
+    exit;
  ?>
