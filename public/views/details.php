@@ -23,17 +23,27 @@
                     <div> လုံးဝသဘောတူပါသည် </div>
                 </div>";
 
-                // Data
-                for($i=0; $i<count($data); $i+=1) {
+                // Details
+                for($i=0; $i<count($details); $i+=1) {
                     echo "<div class='details'>";
-                    for($j=0; $j<count($data[$i]); $j+=1) {
+                    for($j=0; $j<count($details[$i]); $j+=1) {
                         if($j == 0) {
-                            echo "<div class='details-question'>" . $data[$i][$j] . "</div>";
+                            echo "<div class='details-question'>" . $details[$i][$j] . "</div>";
                         }else {
-                            echo "<div class='details-number'>" . $data[$i][$j] . "</div>";
+                            echo "<div class='details-number'>" . $details[$i][$j] . "</div>";
                         }
                     }
                     echo "</div>";
+                }
+            ?>
+        </div>
+        <div class="comment-wrapper"> 
+            <h2> Comments : </h2>
+            <?php
+                for($i=0; $i<count($comment); $i+=1) {
+                    echo "<div class='comment'>
+                        $comment[$i]
+                    </div>";
                 }
             ?>
         </div>

@@ -30,7 +30,7 @@ const patternInstructorName = /^(?!Daw|U|\s)(\D)+(\d)*$/i
 
 
 function validateInstructorName() {
-    const instructorNameValue = instructorName.value;
+    const instructorNameValue = instructorName.value
     
     // check pattern
     if(instructorNameValue.match(patternInstructorName)){
@@ -46,7 +46,7 @@ function validateInstructorName() {
 }
 
 function validateAcademicYear() {
-    const academicYearValue = academicYear.value;
+    const academicYearValue = academicYear.value
     
     // check pattern
     if(academicYearValue.match(patternAcademicYear)){

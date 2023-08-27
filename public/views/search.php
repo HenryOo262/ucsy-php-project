@@ -11,19 +11,33 @@
         <link rel="stylesheet" href="../assets/css/process.css">
     </head>
     <body class="school-bg">
-        <form action="../src/search_handler.php" method="GET" class="login-box">
+        <form action="../src/record_handler.php" method="GET" class="login">
             <div class="flex row">
                 <h2> Search Records </h2>
             </div>
             <div class="input-wrapper">
-                <label for="instructorName">
-                    <input type="text" name="instructorName">
+                <label for="academicYear">
+                    <input type="text" name="academicYear" list="academicYears" required> 
+                    <datalist id="academicYears">
+                        <?php 
+                            for($i=date('Y'); $i>=1950; $i-=1) {
+                                $nextYear = $i+1;
+                                echo "<option value='$i-$nextYear'> $i-$nextYear </option>";
+                            }
+                        ?>
+                    </datalist>
                 </label> 
             </div>
             <div class="input-wrapper">
-                <label for="academicYear">
-                    <input type="text" name="academicYear"> 
-                </label> 
+                <label for="semester">
+                    <select name="semester">
+                        <?php 
+                            for($i=1; $i<=9; $i+=1) {
+                                echo "<option value='$i'> Semester $i </option>";
+                            }
+                        ?>
+                    </select>
+                </label>
             </div>
             <div class="flex row">
                 <button type="submit" name="submit_button" value="select"> Search </button>

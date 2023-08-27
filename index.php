@@ -28,17 +28,20 @@
             break;
 
         case "/admin/search":
-            renderSearchRecord();
+            renderSearch();
             break;
 
         case "/admin/search/show":
-            renderShowRecord();
+            renderShow();
 
         case "/admin/search/show/details":
-            renderDetailsRecord();
+            renderDetails();
 
         case "/admin/create":
-            renderCreateRecord();
+            renderCreate();
+        
+        case "/admin/search/update":
+            renderUpdate();
             
         default:
             http_response_code(404);
@@ -50,7 +53,7 @@
         $database   = DB_NAME;
 
         // connect to database
-        $conn = new mysqli($servername,"validator","validator2023",$database);
+        $conn = new mysqli($servername,"student","stud2022",$database);
         if($conn->connect_error) {
             die("Connection Failed");
         }
@@ -60,12 +63,15 @@
         $questions = array();
         $qgroups = array();
 
+        // burmese numbers
+        $mmnum = NUM_MAP;
+
         // fetch all the courses 
         // there are 9 semesters as fixed values
         try {
             for($i=1; $i<=9; $i+=1) {
                 $temp = array();
-                $result = $conn->query("SELECT course_id FROM course WHERE semester='$i'");
+                $result = $conn->query("SELECT course_id FROM course_semester WHERE semester_id='$i'");
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()) {
                         array_push($temp,$row["course_id"]);
@@ -116,9 +122,9 @@
         }
     }
 
-    function renderSearchRecord() {
+    function renderSearch() {
         if($_SESSION["logged"]) {
-            require "./public/views/search-record.php";
+            require "./public/views/search.php";
             exit;
         } else {
             header("Location: /admin");
@@ -126,10 +132,10 @@
         }
     }
 
-    function renderShowRecord() {
+    function renderShow() {
         if($_SESSION["logged"]) {
             $data = $_SESSION["searchData"];
-            require "./public/views/show-record.php";
+            require "./public/views/show.php";
             exit;
         } else {
             header("Location: /admin");
@@ -137,10 +143,11 @@
         }
     }
 
-    function renderDetailsRecord() {
+    function renderDetails() {
         if($_SESSION["logged"]) {
-            $data = $_SESSION["detailsData"];
-            require "./public/views/details-record.php";
+            $details = $_SESSION["detailsData"];
+            $comment = $_SESSION["commentData"];
+            require "./public/views/details.php";
             exit;
         } else {
             header("Location: /admin");
@@ -148,7 +155,7 @@
         }
     }
 
-    function renderCreateRecord() {
+    function renderCreate() {
         if($_SESSION["logged"]) {
             $servername = DB_HOST;
             $database   = DB_NAME;
@@ -157,19 +164,83 @@
             if($conn->connect_error) {
                 die("Connection Failed");
             }
-            $result = $conn->query("SELECT course_id FROM course");
 
-            $data = array();
-            while($row = $result->fetch_assoc()) {
-                array_push($data,$row["course_id"]);
-            }
+            // get courses for suggestion
+            $course = fetchCourse($conn);
+
+            // get faculties for suggestion
+            $faculty = fetchFaculty($conn);
+
+            // get instructor data for suggestion
+            $instructor = fetchInstructorData($conn);
             
-            require "./public/views/create-record.php";
+            require "./public/views/create.php";
             exit;
         } else {
             header("Location: /admin");
             exit;
         }
+    }
+
+    function renderUpdate() {
+        if($_SESSION["logged"]) {
+            $servername = DB_HOST;
+            $database   = DB_NAME;
+
+            $conn = new mysqli($servername,$_SESSION["username"],$_SESSION["password"],$database);
+            if($conn->connect_error) {
+                die("Connection Failed");
+            }
+
+            // get courses for suggestion
+            $course = fetchCourse($conn);
+
+            // get faculties for suggestion
+            $faculty = fetchFaculty($conn);
+
+            // get instructor data for suggestion 
+            $instructor = fetchInstructorData($conn);
+
+            $data = $_SESSION["updateData"];
+            require "./public/views/update.php";
+            exit;
+        } else {
+            header("Location: /admin");
+            exit;
+        }
+    }
+
+    function fetchFaculty($conn) {
+        $result = $conn->query("SELECT faculty_id, faculty_name FROM faculty ORDER BY faculty_name DESC");
+        $faculty = array();
+        while($row = $result->fetch_assoc()) {
+            $temp = array();
+            array_push($temp, $row["faculty_id"]);
+            array_push($temp, $row["faculty_name"]);
+            array_push($faculty,$temp);
+        }
+        return $faculty;
+    }
+
+    function fetchCourse($conn) {
+        $result = $conn->query("SELECT course_id FROM course");
+        $course = array();
+        while($row = $result->fetch_assoc()) {
+            array_push($course,$row["course_id"]);
+        }
+        return $course;
+    }
+
+    function fetchInstructorData($conn) {
+        $result = $conn->query("SELECT instructor_name, email FROM instructor");
+        $instructor = array();
+        while($row = $result->fetch_assoc()) {
+            $temp = array();
+            array_push($temp,$row["instructor_name"]);
+            array_push($temp,$row["email"]);
+            array_push($instructor,$temp);
+        }
+        return $instructor;
     }
 
 ?>

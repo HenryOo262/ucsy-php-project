@@ -1,5 +1,5 @@
 
-/* CSS for admin login page and deta retrieval page forms */
+/* CSS for admin login page and data processing pages */
 
 body {
     position: relative;
@@ -8,7 +8,7 @@ body {
     background-color: #f4f4f4;
 }
 
-.login-box {
+.login {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,9 +34,36 @@ body {
     border: 1px solid rgba(0,0,0,0.4);
 }
 
+.process-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 36px;
+    margin-left: auto;
+    margin-right: auto;
+
+    min-height: 235px;
+    height: auto;
+    min-width: 600px;
+    max-width: 770px;
+    width: 750px;
+
+    background-color: white;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.55);
+    border: 1px solid rgba(0,0,0,0.4);
+}
+
+.process {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
 h2 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 36px;
 }
 
 .logo {
@@ -55,20 +82,30 @@ h2 {
 
 .input-wrapper {
     position: relative;
-    width: 80%;
+    width: 100%;
 }
 
 input[type="text"],
-input[type="password"] {
-    min-width: 100%;
+input[type="password"],
+input[type="email"],
+select {
+    width: 100%;
     padding: 8px;
     margin-bottom: 20px;
     border: 1px solid #000000;
     border-radius: 1px;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, select:focus {
     outline-color: #04acd2;
+}
+
+input:read-only {
+    background-color: #f0f0f0;
+}
+
+input:read-only:focus { 
+    outline: none;
 }
 
 label::after {
@@ -86,7 +123,7 @@ label::after {
     white-space: nowrap;
 }
 
-[for="username"]::after {
+label[for="username"]::after {
     content: "Username";
 }
 
@@ -96,17 +133,26 @@ label[for="password"]::after {
 
 label[for="instructorName"]::after {
     content: "Instructor Name";
-    left: 5%;
+}
+
+label[for="email"]::after {
+    content: "Instructor E-mail";
+}
+
+label[for="faculty"]::after {
+    content: "Instructor Faculty";
+}
+
+label[for="semester"]::after {
+    content: "Semester";
 }
 
 label[for="academicYear"]::after {
     content: "Academic Year";
-    left: 5%;
 }
 
 label[for="course"]::after {
-    content: "Course";
-    left: 5%;
+    content: "Subject";
 }
 
 button[type="submit"] {
@@ -115,6 +161,8 @@ button[type="submit"] {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+
+    margin-top: 20px;
 }
 
 button[type="submit"]:hover {

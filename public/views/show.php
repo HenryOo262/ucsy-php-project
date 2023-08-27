@@ -18,28 +18,31 @@
                     <li>Instructor</li>
                     <li>Faculty</li>
                     <li>Academic Year</li>
-                    <li>Course</li>
+                    <li>Semester</li>
+                    <li>Subject</li>
                     <li>Record Details</li>
                     <li>Update Record</li>
                 </div>";
                 for($i=0; $i<count($data); $i+=1){
-                    echo "<form method='GET' action='../../src/search_handler.php' class='card'>";
+                    echo "<form method='GET' action='../../src/record_handler.php' class='card'>";
                         echo "
                             <div>
                                 <ul class='list-item'> ";
-                                    for($j=0; $j<count($data[$i]); $j+=1) {
-                                        echo "<li>".$data[$i][$j]."</li>";
-                                    }
+                                    echo "<li>".$data[$i]["teachesID"]."</li>";
+                                    echo "<li>".$data[$i]["instructorName"]."</li>";
+                                    echo "<li>".$data[$i]["faculty"]."</li>";
+                                    echo "<li>".$data[$i]["academicYear"]."</li>";
+                                    echo "<li>".$data[$i]["semester"]."</li>";
+                                    echo "<li>".$data[$i]["course"]."</li>";
                                     echo "<li><button class='det' name='submit_button' value='details'>Details</button></li>";
-                                    echo "<li><button class='del' name='submit_button' value='delete' onclick='return showConfirmation()'>Delete</button></li>";
+                                    echo "<li><button class='del' name='submit_button' value='update'>Update</button></li>";
                                 echo "</ul>
                             </div>
                         ";
-                        echo "<input type='text' name='teachesID' value='".$data[$i][0]."'>";
+                        echo "<input type='text' name='teachesID' class='hidden-input' value='".$data[$i]["teachesID"]."'>";
                     echo "</form>";
                 }
             ?>
         </div>
     </body>
-    <script src="../../assets/javascript/submit-confirmation.js"> </script>
 </html>

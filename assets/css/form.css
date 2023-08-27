@@ -7,7 +7,9 @@
     justify-content: center;
     align-items: center;
 
-    margin: 5px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-wrapper * {
@@ -19,12 +21,13 @@
 .box1-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 10px;
     place-items: center;
     align-items: center;
 
     padding: 10px;
-    margin: 10px;
-    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .box1-wrapper > div {
@@ -46,23 +49,37 @@
 }
 
 .box2-wrapper {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .group-header-wrapper {
+    display: grid;
+    grid-template-columns: 3% 60% repeat(5, 1fr); 
+    place-items: center;
+    margin-bottom: 20px;
+
     font-size: 16px;
     font-weight: bold;
 }
 
 .column-wrapper {
     display: grid;
-    grid-template-columns: 50% repeat(5, 1fr); 
-    place-items: center;
-
+    grid-template-columns: 3% 60% repeat(5, 1fr); 
     margin-bottom: 20px;
+}
+
+.column-wrapper > :nth-child(1), .column-wrapper > :nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.column-wrapper > :nth-child(n+3) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn {
@@ -84,8 +101,27 @@
 }
 
 .comment-wrapper textarea {
+    font-size: 16px;
     padding: 10px 20px;
     resize: none;
+}
+
+@media screen and (max-width:760px) {
+    .header-wrapper, .box1-wrapper, .column-wrapper {
+        font-size: 12px;
+    }
+
+    .group-header-wrapper {
+        font-size: 12px;
+    }
+
+    .column-wrapper > :nth-child(1) {
+        visibility: hidden;
+    }
+
+    .comment-wrapper, .comment-wrapper textarea{
+        font-size: 12px;
+    }
 }
 
 /* class to be used inside JS file */

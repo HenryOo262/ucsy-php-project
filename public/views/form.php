@@ -45,14 +45,22 @@
                     </div>
                     <div>
                         <label for="academicYear"> Academic Year : </label>
-                        <?php echo "<input name='academicYear' id='academicYear' type='text' oninput='validateAcademicYear()' placeholder='$year-$next' required>" ?>
+                        <?php echo "<input type='text' name='academicYear' id='academicYear' list='academicYears' oninput='validateAcademicYear()' placeholder='$year-$next' required>" ?>
+                        <datalist id="academicYears">
+                        <?php 
+                            for($i=date('Y'); $i>=1950; $i-=1) {
+                                $nextYear = $i+1;
+                                echo "<option value='$i-$nextYear'> $i-$nextYear </option>";
+                            }
+                        ?>
+                    </datalist>
                     </div>
                     <div>
                         <label for="instructorName"> Instructor Name : </label>
                         <input name="instructorName" id="instructorName" type="text" oninput="validateInstructorName()" placeholder="e.g, John Doe" required>
                     </div>
                     <div>
-                        <label> Course : </label>
+                        <label> Subject : </label>
                         <?php   
                             for($i=1; $i<=9; $i+=1) {
                                 echo "<select name='course$i' id='course$i'>";
@@ -75,16 +83,14 @@
                         // each element of qgroups array become question group headers
                         echo "<div class='box2-wrapper'>"; 
 
-
-                        echo "<div class='column-wrapper'>
-                                <div class='group-header-wrapper'>
-                                    <p> " . $qgroups[$j] . " </p>
-                                </div>
-                                <div class='group-header-wrapper'> <p> လုံးဝသဘောမတူပါ </p> </div>
-                                <div class='group-header-wrapper'> <p> သဘောမတူပါ </p> </div>
-                                <div class='group-header-wrapper'> <p> ကြားနေ </p> </div>
-                                <div class='group-header-wrapper'> <p> သဘောတူပါသည် </p> </div>
-                                <div class='group-header-wrapper'> <p> လုံးဝသဘောတူပါသည် </p> </div>
+                        echo "<div class='group-header-wrapper'>
+                                <div> </div>
+                                <div> <p> " . $qgroups[$j] . " </p> </div>
+                                <div> <p> လုံးဝသဘောမတူပါ </p> </div>
+                                <div> <p> သဘောမတူပါ </p> </div>
+                                <div> <p> ကြားနေ </p> </div>
+                                <div> <p> သဘောတူပါသည် </p> </div>
+                                <div> <p> လုံးဝသဘောတူပါသည် </p> </div>
                             </div>";
 
                             // for each element of qgroups, iterate through questions array
@@ -92,6 +98,8 @@
 
                                 // each iteration is a row
                                 echo "<div class='column-wrapper'>"; 
+
+                                    echo "<div> <p> $mmnum[$row] <p> </div>";
 
                                     // each text element is the first column
                                     echo "<div> <p>" . $questions[$j][$k] . "</p> </div>";

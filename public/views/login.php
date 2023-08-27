@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="./assets/css/process.css">
     </head>
     <body class="school-bg">
-        <form action="./src/login_handler.php" method="POST" class="login-box">
+        <form action="./src/login_handler.php" method="POST" class="login">
             <div class="flex row">
                 <h2> Admin Login </h2>
             </div>

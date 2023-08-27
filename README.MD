@@ -24,6 +24,8 @@ Replace databaseName with the name of your database.
 
 ## Usage
 
+Install PHP 8.0 or above.
+
 Open the terminal.
 
 Run the server using PHP: `php -S localhost:8000`
@@ -32,4 +34,4 @@ Open your web browser and navigate to `http://localhost:8000/`
 
 ## Database Setup 
 
-Download MySQL scripts from `` 
+Run the mysql scripts included in the project directory.
