@@ -108,6 +108,12 @@ input:read-only:focus {
     outline: none;
 }
 
+.select-read-only {
+    background-color: #f0f0f0;
+    outline: none;
+    pointer-events: none;
+}
+
 label::after {
     background-color: #ffffff;
     font-family: 'Courier New', Courier, monospace;

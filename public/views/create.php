@@ -21,11 +21,11 @@
             <div class="process">
                 <div class="input-wrapper">
                     <label for="instructorName">
-                        <input type="text" name="instructorName" id="instructorName" list="instructors" onchange="emailSuggestion()" required>
+                        <input type="text" name="instructorName" id="instructorName" list="instructors" oninput="emailSuggestion()" required>
                         <datalist id="instructors">
                             <?php 
                                 for($i=0; $i<count($instructor); $i+=1) {
-                                    echo "<option value='".$instructor[$i][0]."'>".$instructor[$i][0]."</option>";
+                                    echo "<option value='".$instructor[$i]["instructorName"]."'>".$instructor[$i]["instructorName"]."</option>";
                                 }
                             ?>
                         </datalist>
@@ -33,16 +33,16 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="email">
-                        <input type="email" name="email" id="email" list="emails" required>
+                        <input type="email" name="email" id="email" list="emails" oninput="dataCorrection()" required>
                         <datalist name="emails" id="emails"> </datalist>
                     </label>
                 </div>
                 <div class="input-wrapper">
                     <label for="faculty">
-                        <select name="faculty">
+                        <select name="faculty" id="faculty">
                             <?php 
                                 for($i=0; $i<count($faculty); $i+=1) {
-                                    echo "<option value='".$faculty[$i][0]."'>".$faculty[$i][1]."</option>";
+                                    echo "<option value='".$faculty[$i]["faculty_id"]."'>".$faculty[$i]["faculty_name"]."</option>";
                                 }
                             ?>
                         </select>
@@ -63,13 +63,14 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="semester">
-                        <select name="semester">
+                        <input type="text" name="semester" list="semesters">
+                        <datalist id="semesters">
                             <?php 
                                 for($i=1; $i<=9; $i+=1) {
-                                    echo "<option value='$i'> Semester $i </option>";
+                                    echo "<option value='$i'> $i </option>";
                                 }
                             ?>
-                        </select>
+                        </datalist>
                     </label>
                 </div>
                 <div class="input-wrapper">

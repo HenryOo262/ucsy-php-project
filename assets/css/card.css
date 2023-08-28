@@ -12,17 +12,19 @@
 
 .card-attribute {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: 0.5fr repeat(4, 1fr) 0.5fr 1fr repeat(2, 0.5fr);
     align-items: center;        
     justify-content: center;    
     text-align: center; 
 
     background-color: #40e0d0;
     list-style: none;
+
     width: 100%;
     margin: 20px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 16px;
+
     font-weight: bold;
 }
 
@@ -30,11 +32,12 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    background-color: #f0f0f0;
 
     width: 100%;
-    padding: 20px;
     margin: 20px;
+    padding: 10px;
+    font-size: 14px;
 
     transition-property: transform;
     transition-duration: 0.1s;
@@ -45,10 +48,10 @@
     padding: 0;
 
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    align-items: center;        /* align divs of grid vertically */
+    grid-template-columns: 0.5fr repeat(4, 1fr) 0.5fr 1fr repeat(2, 0.5fr); /* 9 cols */
+    align-items: center;        /* align divs of grid vertically   */
     justify-content: center;    /* align divs of grid horizontally */
-    text-align: center;       /* align text inside div in center */
+    text-align: center;         /* align text inside div in center */
 }
 
 .del {

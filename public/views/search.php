@@ -17,7 +17,7 @@
             </div>
             <div class="input-wrapper">
                 <label for="academicYear">
-                    <input type="text" name="academicYear" list="academicYears" required> 
+                    <input type="text" name="academicYear" list="academicYears"> 
                     <datalist id="academicYears">
                         <?php 
                             for($i=date('Y'); $i>=1950; $i-=1) {
@@ -30,17 +30,18 @@
             </div>
             <div class="input-wrapper">
                 <label for="semester">
-                    <select name="semester">
+                    <input type="text" name="semester" list="semesters">
+                    <datalist id="semesters">
                         <?php 
                             for($i=1; $i<=9; $i+=1) {
-                                echo "<option value='$i'> Semester $i </option>";
+                                echo "<option value='$i'> $i </option>";
                             }
                         ?>
-                    </select>
+                    </datalist>
                 </label>
             </div>
             <div class="flex row">
-                <button type="submit" name="submit_button" value="select"> Search </button>
+                <button type="submit" name="submit_button" value="search"> Search </button>
             </div>
         </form>
     </body>

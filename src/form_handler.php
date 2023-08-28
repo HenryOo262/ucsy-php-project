@@ -101,11 +101,11 @@
 
     // insert comment
     $insertCommentQuery = "INSERT INTO comment(teaches_id,comment) VALUES ($teachesID,'$comment')";
-    $conn->query($insertCommentQuery);
+    $result = $conn->query($insertCommentQuery);
 
     // close connection
     $conn->close();
 
-    header("Location: /");
+    echo "Evaluation succeeded. Thanks for participating";
     exit;
  ?>

@@ -204,13 +204,15 @@
         }
     }
 
+    //////////////////// Fetch Functions ///////////////////////////
+
     function fetchFaculty($conn) {
         $result = $conn->query("SELECT faculty_id, faculty_name FROM faculty ORDER BY faculty_name DESC");
         $faculty = array();
         while($row = $result->fetch_assoc()) {
             $temp = array();
-            array_push($temp, $row["faculty_id"]);
-            array_push($temp, $row["faculty_name"]);
+            $temp["faculty_id"] = $row["faculty_id"];
+            $temp["faculty_name"] = $row["faculty_name"];
             array_push($faculty,$temp);
         }
         return $faculty;
@@ -226,12 +228,13 @@
     }
 
     function fetchInstructorData($conn) {
-        $result = $conn->query("SELECT instructor_name, email FROM instructor");
+        $result = $conn->query("SELECT instructor_name, email, faculty_id FROM instructor");
         $instructor = array();
         while($row = $result->fetch_assoc()) {
             $temp = array();
-            array_push($temp,$row["instructor_name"]);
-            array_push($temp,$row["email"]);
+            $temp["instructorName"] = $row["instructor_name"];
+            $temp["email"]          = $row["email"];
+            $temp["faculty_id"]     = $row["faculty_id"];
             array_push($instructor,$temp);
         }
         return $instructor;

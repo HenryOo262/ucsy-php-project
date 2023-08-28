@@ -16,8 +16,8 @@
     // DBMS operations on Teaches Table
     if(isset($_GET["submit_button"])) {
         // for GET requests
-        if($_GET["submit_button"] == "select") {
-            select();
+        if($_GET["submit_button"] == "search") {
+            search();
         } else if($_GET["submit_button"] == "update") {
             update();
         } else if($_GET["submit_button"] == "details") {
@@ -27,7 +27,7 @@
         // for POST requests
         if($_POST["submit_button"] == "create") {
             create();
-        } else if($_POST["submit_button"] == "update") {
+        } else if($_POST["submit_button"] == "save") {
             save();
         }
     }
@@ -129,7 +129,7 @@
     }
     
     // search records
-    function select() {
+    function search() {
         global $conn;
         $semester = $conn->real_escape_string($_GET["semester"]);
         $academicYear = $conn->real_escape_string($_GET["academicYear"]);
@@ -139,9 +139,17 @@
             FROM teaches JOIN instructor JOIN faculty 
             ON teaches.instructor_id = instructor.instructor_id 
             AND instructor.faculty_id = faculty.faculty_id 
-            WHERE academicYear='$academicYear' 
-            AND semester_id=$semester
         ";
+
+        if(!empty($_GET["semester"]) && empty($_GET["academicYear"])) {
+            $query .= " WHERE semester_id=$semester";
+        } else if(!empty($_GET["academicYear"]) && empty($_GET["semester"])) {
+            $query .= " WHERE academicYear='$academicYear'";
+        } else if(!empty($_GET["academicYear"]) && !empty($_GET["semester"])) {
+            $query .= " WHERE academicYear='$academicYear' AND semester_id=$semester";
+        }
+
+        $query .= " ORDER BY academicYear DESC";
 
         // execute query
         $result = $conn->query($query);
@@ -153,6 +161,7 @@
             $temp = array();
             $temp["teachesID"]      = $row["teaches_id"];
             $temp["instructorName"] = $row["instructor_name"];
+            $temp["email"]          = $row["email"];
             $temp["faculty"]        = $row["faculty_name"];
             $temp["academicYear"]   = $row["academicYear"];
             $temp["semester"]       = $row["semester_id"];

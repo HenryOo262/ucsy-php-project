@@ -9,9 +9,6 @@
         <link rel="icon" type="image/x-icon" href="../../assets/image/cufavicon.ico">
         <link rel="stylesheet" href="../../assets/css/styles.css">
         <link rel="stylesheet" href="../../assets/css/process.css">
-        <script>
-            var instructor = <?php echo json_encode($instructor); ?>;
-        </script>
     </head>
     <body class="school-bg">
         <form action="../../src/record_handler.php" method="POST" class="process-wrapper">
@@ -19,12 +16,12 @@
             <div class="process">
                 <div class="input-wrapper">
                     <label for="instructorName">
-                        <input type="text" name="instructorName" id="instructorName" <?php echo "value='".$data['instructorName']."'" ?> list="instructors" readonly required>
+                        <input type="text" name="instructorName" <?php echo "value='".$data['instructorName']."'" ?> list="instructors" readonly required>
                     </label> 
                 </div>
                 <div class="input-wrapper">
                     <label for="email">
-                        <input type="email" name="email" id="email" list="emails" <?php echo "value='".$data['email']."'" ?> readonly required>
+                        <input type="email" name="email" list="emails" <?php echo "value='".$data['email']."'" ?> readonly required>
                     </label>
                 </div>
                 <div class="input-wrapper">
@@ -71,11 +68,10 @@
                 </div>
             </div>
             <div class="flex row">
-                <button type="submit" name="submit_button" value="update" onclick="return showConfirmation('Are you sure you want to save changes ?')"> Update </button>
+                <button type="submit" name="submit_button" value="save" onclick="return showConfirmation('Are you sure you want to save changes ?')"> Update </button>
             </div>
             <input type="text" name="teachesID" class="hidden-input" <?php echo "value='".$data['teachesID']."'" ?> >
         </form>
     </body>
     <script src="../../assets/javascript/submit-confirmation.js"> </script>
-    <script src="../../assets/javascript/data-suggestion.js"> </script>
 </html>

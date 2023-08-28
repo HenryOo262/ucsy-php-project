@@ -16,6 +16,7 @@
                 echo "<div class='card-attribute'>
                     <li>Record ID</li>
                     <li>Instructor</li>
+                    <li>Email</li>
                     <li>Faculty</li>
                     <li>Academic Year</li>
                     <li>Semester</li>
@@ -30,6 +31,7 @@
                                 <ul class='list-item'> ";
                                     echo "<li>".$data[$i]["teachesID"]."</li>";
                                     echo "<li>".$data[$i]["instructorName"]."</li>";
+                                    echo "<li>".$data[$i]["email"]."</li>";
                                     echo "<li>".$data[$i]["faculty"]."</li>";
                                     echo "<li>".$data[$i]["academicYear"]."</li>";
                                     echo "<li>".$data[$i]["semester"]."</li>";
