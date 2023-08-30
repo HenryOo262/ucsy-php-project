@@ -34,7 +34,7 @@
                 <!-- Instructor Information -->
                 <div class="box1-wrapper">
                     <div>
-                        <label for="semester"> Semester : </label>
+                        <label for="semester"> သင်တန်းနှစ် : </label>
                         <select name="semester" id="semester" onchange="populator()">
                             <?php
                                 for($i = 1; $i <= 9; $i += 1){
@@ -44,7 +44,7 @@
                         </select>
                     </div>
                     <div>
-                        <label for="academicYear"> Academic Year : </label>
+                        <label for="academicYear"> ပညာသင်နှစ် : </label>
                         <?php echo "<input type='text' name='academicYear' id='academicYear' list='academicYears' oninput='validateAcademicYear()' placeholder='$year-$next' required>" ?>
                         <datalist id="academicYears">
                         <?php 
@@ -56,11 +56,11 @@
                     </datalist>
                     </div>
                     <div>
-                        <label for="instructorName"> Instructor Name : </label>
+                        <label for="instructorName"> ဆရာ၊ဆရာမအမည် : </label>
                         <input name="instructorName" id="instructorName" type="text" oninput="validateInstructorName()" placeholder="e.g, John Doe" required>
                     </div>
                     <div>
-                        <label> Subject : </label>
+                        <label> ဘာသာရပ် : </label>
                         <?php   
                             for($i=1; $i<=9; $i+=1) {
                                 echo "<select name='course$i' id='course$i'>";
@@ -123,14 +123,14 @@
                 <!-- Assessment Points Ends -->
 
                 <div class="comment-wrapper">
-                    <div> Any Comment : </div>
+                    <div> မှတ်ချက် - </div>
                     <div>
                         <textarea rows="4" cols="50" name="comment"> </textarea>
                     </div>
                 </div>
 
                 <div class="flex row">
-                    <input type="submit" class="btn" id="btn">
+                    <button type="submit" class="btn" id="btn"> ဖောင်တင်ရန် </button>
                 </div>
 
             </form> 

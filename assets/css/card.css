@@ -10,49 +10,40 @@
     margin: 20px;
 }
 
-.card-attribute {
+.card {
     display: grid;
     grid-template-columns: 0.5fr repeat(4, 1fr) 0.5fr 1fr repeat(2, 0.5fr);
     align-items: center;        
     justify-content: center;    
     text-align: center; 
 
-    background-color: #40e0d0;
-    list-style: none;
-
     width: 100%;
     margin: 20px;
     padding: 10px;
-    font-size: 16px;
-
-    font-weight: bold;
 }
 
-.card {
+.card-attribute {
+    background-color: #40e0d0;
+    list-style: none;
+
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.card-piece {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #f0f0f0;
 
-    width: 100%;
-    margin: 20px;
-    padding: 10px;
-    font-size: 14px;
-
-    transition-property: transform;
-    transition-duration: 0.1s;
-}
-
-.list-item {
     list-style: none;
-    padding: 0;
-
-    display: grid;
-    grid-template-columns: 0.5fr repeat(4, 1fr) 0.5fr 1fr repeat(2, 0.5fr); /* 9 cols */
-    align-items: center;        /* align divs of grid vertically   */
-    justify-content: center;    /* align divs of grid horizontally */
-    text-align: center;         /* align text inside div in center */
+    padding: 10px;
+    font-size: 12px;
 }
+
+ /* align divs of grid vertically   */
+ /* align divs of grid horizontally */
+ /* align text inside div in center */
 
 .del {
     padding: 5px;

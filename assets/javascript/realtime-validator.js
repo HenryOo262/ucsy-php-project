@@ -71,9 +71,9 @@ function checkButton() {
     // if both input field credentials are satisfied
     if(flag1 && flag2){
         // button is enable
-        btn.removeAttribute("disabled")
+        btn.removeAttribute('disabled')
     }else{
         // if not satisfied, button still disabled
-        btn.setAttribute("disabled",true)
+        btn.setAttribute('disabled',true)
     }
 }

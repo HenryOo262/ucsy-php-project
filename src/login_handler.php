@@ -11,10 +11,10 @@
     }
 
     function logout() {
-        $_SESSION["logged"] = false;
+        $_SESSION["logged"]         = false;
         $_SESSION["student_logged"] = false;
-        $_SESSION["username"] = null;
-        $_SESSION["password"] = null;
+        $_SESSION["username"]       = null;
+        $_SESSION["password"]       = null;
 
         header("Location: /");
         exit;
@@ -25,24 +25,27 @@
         $password = $_POST["password"];
 
         $servername = DB_HOST;
-        $database = DB_NAME;
-
-        // establish connection to verify admin login
-        $check = new mysqli($servername, "validator", "validator2023", $database);
-
-        if ($check->connect_error) {
-            die("Connection Failed");
-        }
-
-        // check if login username exists in user table using prepared statement
-        $query = "SELECT * FROM user WHERE username = ?";
-        $stmt = $check->prepare($query);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
+        $database   = DB_NAME;
+        $un         = VALIDATOR;
+        $pass       = VALIDATOR_PASS;
 
         try {
+            // establish connection to verify admin login
+            $check = new mysqli($servername,$un,$pass,$database);
+
+            if ($check->connect_error) {
+                die("Connection Failed");
+            }
+
+            // check if login username exists in user table using prepared statement
+            $query = "SELECT * FROM user WHERE username = ?";
+            $stmt = $check->prepare($query);
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $stmt->close();
+
+        
             if ($result->num_rows > 0) {
                 // if username is found
                 $row = $result->fetch_assoc();
@@ -80,5 +83,6 @@
             echo $e->getMessage();
         }
 
+        $conn->close();
     }
 ?>

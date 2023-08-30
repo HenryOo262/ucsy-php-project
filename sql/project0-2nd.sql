@@ -65,7 +65,7 @@ create table qgroup(
 	qgroup_id int auto_increment not null,
     qgroup text not null,
     primary key (qgroup_id)
-);
+)auto_increment = 1;
 
 create table question(
 	qgroup_id int not null,

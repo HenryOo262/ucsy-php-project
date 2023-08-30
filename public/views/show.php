@@ -13,7 +13,7 @@
     <body>
         <div class="card-wrapper">
             <?php 
-                echo "<div class='card-attribute'>
+                echo "<div class='card card-attribute'>
                     <li>Record ID</li>
                     <li>Instructor</li>
                     <li>Email</li>
@@ -25,22 +25,18 @@
                     <li>Update Record</li>
                 </div>";
                 for($i=0; $i<count($data); $i+=1){
-                    echo "<form method='GET' action='../../src/record_handler.php' class='card'>";
-                        echo "
-                            <div>
-                                <ul class='list-item'> ";
-                                    echo "<li>".$data[$i]["teachesID"]."</li>";
-                                    echo "<li>".$data[$i]["instructorName"]."</li>";
-                                    echo "<li>".$data[$i]["email"]."</li>";
-                                    echo "<li>".$data[$i]["faculty"]."</li>";
-                                    echo "<li>".$data[$i]["academicYear"]."</li>";
-                                    echo "<li>".$data[$i]["semester"]."</li>";
-                                    echo "<li>".$data[$i]["course"]."</li>";
-                                    echo "<li><button class='det' name='submit_button' value='details'>Details</button></li>";
-                                    echo "<li><button class='del' name='submit_button' value='update'>Update</button></li>";
-                                echo "</ul>
-                            </div>
-                        ";
+                    echo "<form method='GET' action='../../src/record_handler.php' class='card card-piece'>";
+                    
+                        echo "<div>".$data[$i]["teachesID"]."</div>";
+                        echo "<div>".$data[$i]["instructorName"]."</div>";
+                        echo "<div>".$data[$i]["email"]."</div>";
+                        echo "<div>".$data[$i]["faculty"]."</div>";
+                        echo "<div>".$data[$i]["academicYear"]."</div>";
+                        echo "<div>".$data[$i]["semester"]."</div>";
+                        echo "<div>".$data[$i]["course"]."</div>";
+                        echo "<div><button class='det' name='submit_button' value='details'>Details</button></div>";
+                        echo "<div><button class='del' name='submit_button' value='update'>Update</button></div>";
+
                         echo "<input type='text' name='teachesID' class='hidden-input' value='".$data[$i]["teachesID"]."'>";
                     echo "</form>";
                 }

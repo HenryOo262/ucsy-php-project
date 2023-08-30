@@ -16,7 +16,7 @@ for(i=0; i<=8; i++) {
     // all boxes are hidden except semester one's box when page is 
     // loaded
     if(i!=0){
-        course[i].classList.add("hide");
+        course[i].classList.add('hide');
     }
 }
 
@@ -25,11 +25,11 @@ function populator() {
     let selected = semester.value;
 
     // hide the old visible box
-    course[currentlyVisible].classList.add("hide");
+    course[currentlyVisible].classList.add('hide');
 
     // swap old with new
     currentlyVisible = selected-1;
     
     // make the new box visible
-    course[currentlyVisible].classList.remove("hide");
+    course[currentlyVisible].classList.remove('hide');
 }

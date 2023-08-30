@@ -29,6 +29,7 @@
 
         case "/form":
             renderForm();
+            break;
 
         case "/admin":
             renderAdmin();
@@ -40,15 +41,19 @@
 
         case "/admin/search/show":
             renderShow();
+            break;
 
         case "/admin/search/show/details":
             renderDetails();
+            break;
 
         case "/admin/create":
             renderCreate();
+            break;
         
         case "/admin/search/update":
             renderUpdate();
+            break;
             
         default:
             http_response_code(404);
@@ -59,24 +64,27 @@
         if($_SESSION["logged"] || $_SESSION["student_logged"]) {
             $servername = DB_HOST;
             $database   = DB_NAME;
+            $username   = STUDENT;
+            $password   = STUDENT_PASS;
 
-            // connect to database
-            $conn = new mysqli($servername,"student","stud2022",$database);
-            if($conn->connect_error) {
-                die("Connection Failed");
-            }
-
-            // declare arrays 
-            $courses = array();
-            $questions = array();
-            $qgroups = array();
-
-            // burmese numbers
-            $mmnum = NUM_MAP;
-
-            // fetch courses for each semester
-            // there are 9 semesters as fixed values
             try {
+                // connect to database
+                $conn = new mysqli($servername,$username,$password,$database);
+                if($conn->connect_error) {
+                    die("Connection Failed");
+                }
+
+                // declare arrays 
+                $courses    = array();
+                $questions  = array();
+                $qgroups    = array();
+                $qgroups_id = array();
+
+                // burmese numbers
+                $mmnum = NUM_MAP;
+
+                // fetch courses for each semester
+                // there are 9 semesters as fixed values
                 for($i=1; $i<=9; $i+=1) {
                     $temp = array();
                     $result = $conn->query("SELECT course_id FROM course_semester WHERE semester_id='$i'");
@@ -87,36 +95,29 @@
                     }
                     $courses[$i-1] = $temp;
                 }
-            } catch(Exception $e) {
-                echo $e->getMessage();
-            }
 
-            // fetch question groups
-            try {
+                // fetch question groups
                 $result = $conn->query("SELECT * FROM qgroup");
                 while($row = $result->fetch_assoc()){
                     array_push($qgroups,$row["qgroup"]);
+                    array_push($qgroups_id,$row["qgroup_id"]);
                 }
-            } catch(Exception $e) {
-                echo $e->getMessage();
-            }
 
-            // fetch questions
-            try {
-                for($i=0; $i<count($qgroups); $i+=1) {
+                // fetch questions
+                for($i=0; $i<count($qgroups_id); $i+=1) {
                     $temp = array();
-                    $result = $conn->query("SELECT question FROM question WHERE qgroup_id = $i+1");
+                    $result = $conn->query("SELECT question FROM question WHERE qgroup_id = $qgroups_id[$i]");
                     while($row = $result->fetch_assoc()) {
                         array_push($temp,$row["question"]);
                     }
                     array_push($questions, $temp);
                 }
+
+                require "./public/views/form.php";
+                $conn->close();
             } catch(Exception $e) {
                 echo $e->getMessage();
             }
-
-            require "./public/views/form.php";
-            $conn->close();
             exit;
         } else {
             header("Location: /");
@@ -190,9 +191,13 @@
             $servername = DB_HOST;
             $database   = DB_NAME;
 
-            $conn = new mysqli($servername,$_SESSION["username"],$_SESSION["password"],$database);
-            if($conn->connect_error) {
-                die("Connection Failed");
+            try {
+                $conn = new mysqli($servername,$_SESSION["username"],$_SESSION["password"],$database);
+                if($conn->connect_error) {
+                    die("Connection Failed");
+                }
+            } catch(Exception $e) {
+                echo $e->getMessage();
             }
 
             // get courses for suggestion
@@ -204,6 +209,7 @@
             // get instructor data for suggestion
             $instructor = fetchInstructorData($conn);
             
+            $conn->close();
             require "./public/views/create.php";
             exit;
         } else if($_SESSION["student_logged"]) {
@@ -219,15 +225,26 @@
             $servername = DB_HOST;
             $database   = DB_NAME;
 
-            $conn = new mysqli($servername,$_SESSION["username"],$_SESSION["password"],$database);
-            if($conn->connect_error) {
-                die("Connection Failed");
+            try {
+                $conn = new mysqli($servername,$_SESSION["username"],$_SESSION["password"],$database);
+                if($conn->connect_error) {
+                    die("Connection Failed");
+                }
+            } catch(Exception $e) {
+                echo $e->getMessage();
             }
 
             // get courses for suggestion
             $course = fetchCourse($conn);
 
+            // get faculties for suggestion
+            $faculty = fetchFaculty($conn);
+
+            // get instructor data for suggestion
+            $instructor = fetchInstructorData($conn);
+
             $data = $_SESSION["updateData"];
+            $conn->close();
             require "./public/views/update.php";
             exit;
         } else if($_SESSION["student_logged"]) {
@@ -247,7 +264,7 @@
             $faculty = array();
             while($row = $result->fetch_assoc()) {
                 $temp = array();
-                $temp["faculty_id"] = $row["faculty_id"];
+                $temp["faculty_id"]   = $row["faculty_id"];
                 $temp["faculty_name"] = $row["faculty_name"];
                 array_push($faculty,$temp);
             }

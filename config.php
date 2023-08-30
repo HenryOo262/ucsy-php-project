@@ -3,6 +3,12 @@
     define('DB_HOST', 'localhost:3306');
     define('DB_NAME', 'project0');
 
+    define('VALIDATOR', 'validator');
+    define('VALIDATOR_PASS', 'validator2023');
+
+    define('STUDENT', 'student');
+    define('STUDENT_PASS', 'stud2022');
+
     $numberMapping = array(
         1 => "၁။",
         2 => "၂။",

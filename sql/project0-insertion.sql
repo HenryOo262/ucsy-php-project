@@ -1,7 +1,8 @@
 use project0;
 
-insert into user values ('admin','$2y$10$ceDI2qGfgl7prCnOdO2J..pUdQyMR6foh3xI6bDznDxc0JmlW5iv2','admin'),
-('banyar@ucsy.edu.mm','$2y$10$6gZsbqNRhQFCByMkgDVlT.T9c3Nm.Rsp875CTu.bhcvxTCoYBh8ce','student');
+insert into user values 
+('admin','$2y$10$ceDI2qGfgl7prCnOdO2J..pUdQyMR6foh3xI6bDznDxc0JmlW5iv2','admin'),
+('21370','$2y$10$6gZsbqNRhQFCByMkgDVlT.T9c3Nm.Rsp875CTu.bhcvxTCoYBh8ce','student');
 
 insert into faculty values
 ('FCST','Faculty of Computer Systems and Technologies'),
@@ -12,8 +13,15 @@ insert into faculty values
 ('DNS','Department of Natural Science'),
 ('DITSM','Department of Information Technology Supporting and Maintenance');
 
-insert into instructor values (1,'Marlar Win Khin','FC','mlwinkhin@ucsy.edu.mm');
-insert into instructor(instructor_name, faculty_id, email) values ('Marlar','FIS','marlar@ucsy.edu.mm'), ('San San','FC','sansan1@ucsy.edu.mm'), ('Hsu Yee','DITSM','hsuyee@ucsy.edu.mm'), ('Hsu Myat','FCS','hsumyat@ucsy.edu.mm'), ('Aye Aye','DL','aye2@ucsy.edu.mm'), ('Cho Cho San','FCST','chochosan@ucsy.edu.mm');
+insert into instructor(instructor_name, faculty_id, email) values 
+('Marlar Win Khin','FC','mlwinkhin@ucsy.edu.mm'), 
+('Marlar','FIS','marlar@ucsy.edu.mm'), 
+('San San','FC','sansan1@ucsy.edu.mm'), 
+('Hsu Yee','DITSM','hsuyee@ucsy.edu.mm'), 
+('Hsu Myat','FCS','hsumyat@ucsy.edu.mm'), 
+('Aye Aye','DL','aye2@ucsy.edu.mm'), 
+('Cho Cho San','FCST','chochosan@ucsy.edu.mm'),
+('Hnin Pa Pa Lwin','FC','hpplwin@ucsy.edu.mm');
 
 insert into semester values (1),(2),(3),(4),(5),(6),(7),(8),(9);
 
@@ -43,21 +51,25 @@ insert into teaches values (3, 2, '2023-2024', 'IS-101', 2);
 insert into teaches values (4, 1, '2020-2021', 'CM-301', 4);
 insert into teaches values (5, 6, '2023-2024', 'Myan-101', 1);
 
-insert into qgroup values (1,"သင်တန်းများ၏ ထိရောက်မှုနှင့် သင်တန်းဆရာများ၏ ထိရောက်မှု"), (2,"the name of group2 lorem"), (3,"the name of group3 lorem");
+insert into qgroup values 
+(1,"သင်ခန်းစာထိရောက်မှု၊ ဆရာ၊ဆရာမများသင်ကြားသည့်ပုံစံထိရောက်မှု"), 
+(2,"ကျောင်းသားများလေ့လာသင်ကြားခြင်းထိရောက်မှု"), 
+(3,"အထွေထွေသုံးသပ်ချက်");
 
-insert into question values (1,1,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 1");
-insert into question (qgroup_id,question) values (1,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(1,"ဆရာမသည် စာသင်ချိန်ပြင်ပ သင်ခန်းစာများကို ရှင်းပြရန် ကြိုးစားသည်။"),
-(1,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(1,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(1,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(1,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(2,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(2,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(2,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(2,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(2,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(2,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(3,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(3,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2"),
-(3,"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus aspernatur consequatur, itaque inventore rem tempore necessitatibus! Sapiente quo delectus debitis. 2");
+insert into question (qgroup_id,question) values 
+(1,"သင်ခန်းစာ၏ ပါ၀င်သည့်အကြောင်းအရာ၊ သင်ခန်းစာစီစဉ်ထားမှုနှင့် သင်ယူမှုလေ့ကျင့်ခန်းများသည် သင်ခန်းစာ၏ရည်ရွယ်ချက်များကို ထောက်ကူပေးသည်။"),
+(1,"ဆရာ၊ဆရာမပြင်ဆင်ထားသောသင်ထောက်ကူပစ္စည်းများ (Power Point/ လိုအပ်သည့်စာရွက်စာတမ်းများ) သည် သင်ခန်းစာ၏ ဆိုလိုရင်းကို ကောင်းစွာသဘောပေါက် နားလည်နိုင်သည်။ "),
+(1,"ဆရာ၊ဆရာမမှ ခက်ခဲသည့်အကြောင်းအရာများကို ဂရုတစိုက် ရှင်းပြသည်။"),
+(1,"ဆရာ၊ဆရာမသည် ကျောင်းသူ၊ကျောင်းသားများ၏ လုပ်ဆောင်ချက်အပေါ်တွင် အကျိုးပြုသော/ကောင်းမွန်သော တုန့်ပြန်မှုကို ပေးပါသည်။"),
+(1,"ဆရာ၊ဆရာမသည် ကျောင်းသား၊ ကျောင်းသူများအားအတန်းတွင် ပါ၀င်မှုကို အားပေးပါသည်။"),
+(1,"ဆရာ၊ဆရာမသည် သက်ဆိုင်ရာဘာသာရပ်နှင့်ပါတ်သက်၍ လေးလေးနက်နက်စဉ်းစားရန် ကျောင်းသား၊ကျောင်းသူများအား တွန်းအားပေးပါသည်။ "),
+(1,"ဆရာ၊ဆရာမသည် ကျောင်းသားက တောင်းဆိုသောအခါ အတန်းပြင်ပတွင်ရှင်းလင်းပြသပေးသည်။"),
+(2,"ကျွန်တော်/ကျွန်မတို့သည် ဤအတန်းတွင် သင်ယူခြင်း၌ အကျိုးကျေးဇူးများစွာရှိသည်။ "),
+(2,"သင်ကြားသောအကြောင်းအရာများသည် ဘာသာရပ်နှင့်ဆက်စပ်မှုရှိပါသည်။"),
+(2,"စာမေးပွဲအစမ်းစစ်ဆေးခြင်းများနှင့်အခြားလိုအပ်သောလုပ်ဆောင်ချက်များသည် သင်ကြားသည့် အကြောင်းအရာနှင့်ဆက်စပ်မှုရှိပါသည်။ "),
+(2,"အုပ်စုအဆင့်ခွဲခြားသတ်မှတ်ခြင်းများမှာ ရှင်းလင်းပြတ်သားမှုရှိပါသည်။"),
+(2,"သင်ကြားရေးဆိုင်ရာကိစ္စရပ်များမှာ စိန်ခေါ်မှုတစ်ရပ်ဖြစ်ပါသည်။"),
+(2,"သင်ခန်းစာ၏အဓိကဆိုလိုချက်များသည် နားလည်နိုင်မှုရှိသည်။"),
+(3,"ခြုံငုံသုံးသပ်လျှင် ဆရာ၊ဆရာမ၏ကြိုးစားအားထုတ်မှုသည် ကျောင်းသား၊ ကျောင်းသူများအားအကျိုးရှိစေသည်။"),
+(3,"ခြုံငုံသုံးသပ်လျှင် သင်ခန်းစာသည် ကျွန်တော်/ကျွန်မတို့အတွက် ဆက်လက်လေ့လာမှုအပေါ် အကျိုးရှိစေသည်။ "),
+(3,"ဆရာ၊ဆရာမ၏ ထိရောက်စွာ သင်ကြားပြသမှု၊ဘာသာရပ်ဆိုင်ရာ ကျွမ်းကျင်မှုတို့ကြောင့် နောင် ဤဆရာ/ဆရာမ၏ အတန်းကို တက်ရောက်သင်ကြားလိုပါသည်။");

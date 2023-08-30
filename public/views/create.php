@@ -63,7 +63,7 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="semester">
-                        <input type="text" name="semester" list="semesters">
+                        <input type="text" name="semester" list="semesters" required>
                         <datalist id="semesters">
                             <?php 
                                 for($i=1; $i<=9; $i+=1) {
