@@ -1,4 +1,9 @@
 
+// TRIES TO CORRECT INPUT DATA 
+
+// "instructor" is an 2d array with each index being an instructor
+// each index is an associative array with keys - instructorName,email,faculty_id
+
 const instructorName = document.querySelector("#instructorName")
 const faculty = document.querySelector('#faculty')
 const email = document.querySelector('#email')
@@ -7,10 +12,12 @@ const emailDatalist = document.querySelector('#emails')
 function emailSuggestion() {
     const instructorNameValue = instructorName.value
 
+    // removes all suggested e-mails for previous input-name
     while (emailDatalist.firstChild) {
         emailDatalist.removeChild(emailDatalist.firstChild)
     }
 
+    // suggests emails for the input-name
     instructor.forEach(item => {
         if(item["instructorName"] == instructorNameValue) {
             let newOption = document.createElement("option")
@@ -25,13 +32,15 @@ function dataCorrection() {
 
     for(i=0; i<instructor.length; i++) {
         if(instructor[i]["email"] == emailValue) {
+            // check if email has corresponding owner
             instructorName.value = instructor[i]["instructorName"]
             faculty.value = instructor[i]["faculty_id"]
-            console.log(instructor[i]["faculty_id"])
+            // set read-only 
             instructorName.setAttribute("readonly",true)
             faculty.classList.add('select-read-only')
             break
         } else if(instructor[i]["email"] != emailValue) {
+            // if no corresponding owner unset read-only
             instructorName.removeAttribute("readonly")
             faculty.removeAttribute("readonly")
             faculty.classList.remove('select-read-only')

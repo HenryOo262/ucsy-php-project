@@ -3,10 +3,12 @@ create schema project0;
 
 use project0;
 
-create table admin (
-	username varchar(25) not null,
+create table user (
+	username varchar(255) not null,
     password varchar(255) not null,
-    primary key (username)
+    role varchar(10) not null,
+    primary key (username),
+    CHECK (role IN ('student', 'admin'))
 );
 
 create table faculty(

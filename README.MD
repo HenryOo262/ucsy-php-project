@@ -1,6 +1,6 @@
 # UCSY PHP Project
 
-PHP project for the semester-based 'Teacher Evaulation Form' of my university.
+This is the PHP project for the semester-based 'Teacher Evaulation Form' of my university. It was written for the fourth semester PHP class project. The project is janky and bloated due to being written in pure PHP and minimal Javascript without utilizing modern frontend technologies, frameworks, AJAX, etc. Hey at least it works. 
 
 ## Installation
 
@@ -34,4 +34,8 @@ Open your web browser and navigate to `http://localhost:8000/`
 
 ## Database Setup 
 
+In MySQL workbench, create user "admin" and grant "DBA Role" in Administrative Roles. 
+
 Run the mysql scripts included in the project directory.
+
+The scripts in "rand.sql" create other necessary users and grant privileges to them. It is recommended to run each statement of "rand.sql" at a time.

@@ -36,7 +36,7 @@
             </a>
         </div>
         <form action="./src/login_handler.php" method="POST" class="btn-wrapper flex row">
-            <button class="btn" type="submit" name="log_button" value="logout" onclick="return showConfirmation('Are you sure you want to log out ?')"> Log Out </button>
+            <button class="btn" type="submit" name="logButton" value="logout" onclick="return showConfirmation('Are you sure you want to log out ?')"> Log Out </button>
         </form>
     </body>
     <script src="./assets/javascript/submit-confirmation.js"> </script>

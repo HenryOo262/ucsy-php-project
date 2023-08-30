@@ -1,6 +1,7 @@
 use project0;
 
-insert into admin values ('admin','$2y$10$ceDI2qGfgl7prCnOdO2J..pUdQyMR6foh3xI6bDznDxc0JmlW5iv2');
+insert into user values ('admin','$2y$10$ceDI2qGfgl7prCnOdO2J..pUdQyMR6foh3xI6bDznDxc0JmlW5iv2','admin'),
+('banyar@ucsy.edu.mm','$2y$10$6gZsbqNRhQFCByMkgDVlT.T9c3Nm.Rsp875CTu.bhcvxTCoYBh8ce','student');
 
 insert into faculty values
 ('FCST','Faculty of Computer Systems and Technologies'),

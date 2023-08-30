@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Admin Log In</title>
+        <title>Log In</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="./assets/image/cufavicon.ico">
@@ -18,7 +18,7 @@
     <body class="school-bg">
         <form action="./src/login_handler.php" method="POST" class="login">
             <div class="flex row">
-                <h2> Admin Login </h2>
+                <h2> Login </h2>
             </div>
             <div class="flex row">
                 <img src="./assets/image/ucsy-logo.png" class="logo" alt="ucsy-logo">
@@ -39,7 +39,7 @@
                 </label> 
             </div>
             <div class="flex row">
-                <button type="submit" name="log_button" value="login"> Log In </button>
+                <button type="submit" name="logButton" value="login"> Log In </button>
             </div>
         </form>
     </body>

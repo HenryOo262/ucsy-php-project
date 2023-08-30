@@ -52,7 +52,7 @@
         } else {
             $row = $result->fetch_assoc();
             if($row["faculty_id"] != $faculty) {
-                die("Error: Instructor Faculty mismatch. Please recheck your input values");
+                die("Error: Instructor Faculty and Course Faculty mismatch. Please recheck your input values");
             }
         }
 
@@ -78,11 +78,6 @@
         $semester = $conn->real_escape_string($_POST["semester"]);
         $course = $conn->real_escape_string($_POST["course"]);
         $teachesID = $conn->real_escape_string($_POST["teachesID"]);
-
-        $query = "SELECT instructor_id FROM instructor WHERE email='$email'";
-        $result = $conn->query($query);
-        $row = $result->fetch_assoc();
-        $instructorID = $row["instructor_id"];
 
         $query = "SELECT * FROM course_semester NATURAL JOIN course WHERE course_id='$course' AND semester_id=$semester";
         $result = $conn->query($query);
@@ -177,6 +172,7 @@
     function details() {
         global $conn;
 
+        // fetch evaluation points for that teaches record
         $query = "SELECT * FROM point NATURAL JOIN question WHERE teaches_id = " . $_GET["teachesID"];
         $result = $conn->query($query);
         $details = array();
@@ -191,6 +187,7 @@
             array_push($details, $temp);
         }
 
+        // fetch comments for that record
         $query = "SELECT * FROM comment WHERE teaches_id = " . $_GET["teachesID"];
         $result = $conn->query($query);
         $comment = array();

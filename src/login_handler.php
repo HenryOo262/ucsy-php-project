@@ -4,18 +4,19 @@
 
     require_once "../config.php";
 
-    if($_POST["log_button"] == "login") {
+    if($_POST["logButton"] == "login") {
         login();
-    }else if($_POST["log_button"] == "logout") {
+    }else if($_POST["logButton"] == "logout") {
         logout();
     }
 
     function logout() {
         $_SESSION["logged"] = false;
-        $_SesSION["username"] = null;
+        $_SESSION["student_logged"] = false;
+        $_SESSION["username"] = null;
         $_SESSION["password"] = null;
 
-        header("Location: /admin");
+        header("Location: /");
         exit;
     }
 
@@ -33,8 +34,8 @@
             die("Connection Failed");
         }
 
-        // check if admin login username exists in admin table using prepared statement
-        $query = "SELECT * FROM admin WHERE username = ?";
+        // check if login username exists in user table using prepared statement
+        $query = "SELECT * FROM user WHERE username = ?";
         $stmt = $check->prepare($query);
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -46,28 +47,38 @@
                 // if username is found
                 $row = $result->fetch_assoc();
                 $hashedpassword = $row["password"];
+                // get role of user who logs in
+                $role = $row["role"];
                 // compare login password and stored password of that admin
                 if (password_verify($password, $hashedpassword)) {
-                    // keep username and password in session for further use
-                    $_SESSION["username"] = $_POST["username"];
-                    $_SESSION["password"] = $_POST["password"];
                     $_SESSION["loginFail"] = false;
-                    header("Location: /admin");
+                    // check roles of users who logs in
+                    if($role == "admin") {
+                        // if the user role is admin
+                        // keep username and password in session for further use
+                        $_SESSION["username"] = $_POST["username"];
+                        $_SESSION["password"] = $_POST["password"];
+                        $_SESSION["logged"] = true;
+                        header("Location: /admin");
+                    } else if($role == "student") {
+                        // if the user role is student
+                        $_SESSION["student_logged"] = true;
+                        header("Location: /form");
+                    }
                 } else {
                     $_SESSION["loginFail"] = true;
-                    header("Location: /admin");
+                    header("Location: /");
                     exit;
                 }
             } else {
-                // if username is not in admin table
+                // if username is not in user table, login will fail
                 $_SESSION["loginFail"] = true;
-                header("Location: /admin");
+                header("Location: /");
                 exit;
             }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
 
-        $_SESSION["logged"] = true;
     }
 ?>
