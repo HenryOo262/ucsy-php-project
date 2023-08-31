@@ -104,9 +104,9 @@
                                     // each text element is the first column
                                     echo "<div> <p>" . $questions[$j][$k] . "</p> </div>";
 
-                                    // calls radio partial for the other columns
+                                    // radio buttons for the other columns
                                     // passes row number to use as input name
-                                    include "./public/partials/radio.php";
+                                    require "./public/partials/radio.php";
 
                                     // increment for next row
                                     $row  += 1;

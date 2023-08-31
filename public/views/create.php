@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../assets/css/styles.css">
         <link rel="stylesheet" href="../assets/css/process.css">
         <script>
-            var instructor = <?php echo json_encode($instructor); ?>;
+            const instructor = <?php echo json_encode($instructor); ?>;
         </script>
     </head>
     <body class="school-bg">
