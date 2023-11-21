@@ -148,6 +148,7 @@
             // assign values to associative array
             $data["instructorName"] = $row["instructor_name"];
             $data["email"]          = $row["email"];
+            $data["faculty_id"]     = $row["faculty_id"];  
             $data["faculty"]        = $row["faculty_name"];
             $data["academicYear"]   = $row["academicYear"];
             $data["course"]         = $row["course_id"];
@@ -190,6 +191,19 @@
 
             while($row = $result->fetch_assoc()) {
                 $temp = array();
+
+                // allows update for record if its ID exists in point table
+                $allowUpdateQuery  = "
+                    SELECT EXISTS
+                    (
+                        SELECT teaches_id 
+                        FROM point
+                        WHERE teaches_id = " . $row["teaches_id"] .
+                    ") AS record_exists;
+                ";
+                $allowUpdateResult = $conn->query($allowUpdateQuery);
+                $allowUpdate       = $allowUpdateResult->fetch_assoc();
+
                 $temp["teachesID"]      = $row["teaches_id"];
                 $temp["instructorName"] = $row["instructor_name"];
                 $temp["email"]          = $row["email"];
@@ -197,6 +211,8 @@
                 $temp["academicYear"]   = $row["academicYear"];
                 $temp["semester"]       = $row["semester_id"];
                 $temp["course"]         = $row["course_id"];
+                $temp["allowUpdate"]    = $allowUpdate["record_exists"];
+
                 array_push($data,$temp);
             }
 

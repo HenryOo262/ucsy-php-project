@@ -3,12 +3,18 @@ create schema project0;
 
 use project0;
 
+create table role (
+    role_id int not null,
+    role_name varchar(10) not null,
+    primary key (role_id)
+);
+
 create table user (
 	username varchar(255) not null,
     password varchar(255) not null,
-    role varchar(10) not null,
+    role_id int not null,
     primary key (username),
-    CHECK (role IN ('student', 'admin'))
+    foreign key (role_id) references role(role_id)
 );
 
 create table faculty(

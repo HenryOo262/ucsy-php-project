@@ -23,7 +23,7 @@
                     <span class="material-icons"> search </span>
                 </div>
                 <div class="title flex col">
-                    Search Records 
+                    View Records 
                 </div>
             </a>
             <a class="menu-item" href="/admin/create">

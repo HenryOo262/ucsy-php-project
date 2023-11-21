@@ -38,7 +38,10 @@
             }
 
             // check if login username exists in user table using prepared statement
-            $query = "SELECT * FROM user WHERE username = ?";
+            $query = "SELECT * 
+                    FROM user JOIN role 
+                    ON user.role_id = role.role_id  
+                    WHERE username = ?";
             $stmt = $check->prepare($query);
             $stmt->bind_param("s", $username);
             $stmt->execute();
@@ -51,7 +54,7 @@
                 $row = $result->fetch_assoc();
                 $hashedpassword = $row["password"];
                 // get role of user who logs in
-                $role = $row["role"];
+                $role = $row["role_name"];
                 // compare login password and stored password of that admin
                 if (password_verify($password, $hashedpassword)) {
                     $_SESSION["loginFail"] = false;

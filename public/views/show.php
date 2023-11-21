@@ -35,7 +35,12 @@
                         echo "<div>".$data[$i]["semester"]."</div>";
                         echo "<div>".$data[$i]["course"]."</div>";
                         echo "<div><button class='det' name='submit_button' value='details'>Details</button></div>";
-                        echo "<div><button class='del' name='submit_button' value='update'>Update</button></div>";
+
+                        if($data[$i]["allowUpdate"] == 0) {
+                            echo "<div><button class='upd' name='submit_button' value='update'>Update</button></div>";
+                        } else {
+                            echo "<div><button class='upd' name='submit_button' value='update' disabled>Update</button></div>";
+                        }
 
                         echo "<input type='text' name='teachesID' class='hidden-input' value='".$data[$i]["teachesID"]."'>";
                     echo "</form>";

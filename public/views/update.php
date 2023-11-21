@@ -18,6 +18,12 @@
             <h2 class="flex row"> Update Record </h2>
             <div class="process">
                 <div class="input-wrapper">
+                    <label for="email">
+                        <input type="email" name="email" id="email" list="emails" oninput="dataCorrection()" <?php if(isset($data["email"])){ echo "value='".$data['email']."'"; } ?> required>
+                        <datalist name="emails" id="emails"> </datalist>
+                    </label>
+                </div>
+                <div class="input-wrapper">
                     <label for="instructorName">
                         <input type="text" name="instructorName" id="instructorName" list="instructors" oninput="emailSuggestion()" <?php if(isset($data["instructorName"])){ echo "value='".$data['instructorName']."'"; } ?> required>
                         <datalist id="instructors">
@@ -28,12 +34,6 @@
                             ?>
                         </datalist>
                     </label> 
-                </div>
-                <div class="input-wrapper">
-                    <label for="email">
-                        <input type="email" name="email" id="email" list="emails" oninput="dataCorrection()" <?php if(isset($data["email"])){ echo "value='".$data['email']."'"; } ?> required>
-                        <datalist name="emails" id="emails"> </datalist>
-                    </label>
                 </div>
                 <div class="input-wrapper">
                     <label for="faculty">

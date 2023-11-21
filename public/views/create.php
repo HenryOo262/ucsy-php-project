@@ -20,6 +20,12 @@
             </div>
             <div class="process">
                 <div class="input-wrapper">
+                    <label for="email">
+                        <input type="email" name="email" id="email" list="emails" oninput="dataCorrection()" required>
+                        <datalist name="emails" id="emails"> </datalist>
+                    </label>
+                </div>
+                <div class="input-wrapper">
                     <label for="instructorName">
                         <input type="text" name="instructorName" id="instructorName" list="instructors" oninput="emailSuggestion()" required>
                         <datalist id="instructors">
@@ -30,12 +36,6 @@
                             ?>
                         </datalist>
                     </label> 
-                </div>
-                <div class="input-wrapper">
-                    <label for="email">
-                        <input type="email" name="email" id="email" list="emails" oninput="dataCorrection()" required>
-                        <datalist name="emails" id="emails"> </datalist>
-                    </label>
                 </div>
                 <div class="input-wrapper">
                     <label for="faculty">

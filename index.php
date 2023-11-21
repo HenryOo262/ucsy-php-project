@@ -127,7 +127,10 @@
 
     function renderLogin() {
         if($_SESSION["logged"]) {
-            require "./public/views/dashboard.php";
+            header("Location: /admin");
+            exit;
+        } else if($_SESSION["student_logged"]) { 
+            header("Location: /form");
             exit;
         } else {
             require "./public/views/login.php";
@@ -201,7 +204,7 @@
             }
 
             // get courses for suggestion
-            $course = fetchCourse($conn);
+            $course = fetchCourse($conn,null);
 
             // get faculties for suggestion
             $faculty = fetchFaculty($conn);
@@ -234,8 +237,11 @@
                 echo $e->getMessage();
             }
 
+            // get retrieved data 
+            $data = $_SESSION["updateData"];
+
             // get courses for suggestion
-            $course = fetchCourse($conn);
+            $course = fetchCourse($conn,$data["faculty_id"]);
 
             // get faculties for suggestion
             $faculty = fetchFaculty($conn);
@@ -243,7 +249,6 @@
             // get instructor data for suggestion
             $instructor = fetchInstructorData($conn);
 
-            $data = $_SESSION["updateData"];
             $conn->close();
             require "./public/views/update.php";
             exit;
@@ -275,7 +280,26 @@
     }
 
     // fetch all the courses 
-    function fetchCourse($conn) {
+    function fetchCourse($conn, $faculty_id) {
+        try {
+            if($faculty_id == null) {
+                $result = $conn->query("SELECT course_id FROM course");
+            } else {
+                $result = $conn->query("SELECT course_id FROM course WHERE course.faculty_id = '$faculty_id'");
+            }
+            $course = array();
+            while($row = $result->fetch_assoc()) {
+                array_push($course,$row["course_id"]);
+            }
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
+        return $course;
+    }
+
+     // fetch all the courses 
+     /*
+     function fetchCourse($conn) {
         try {
             $result = $conn->query("SELECT course_id FROM course");
             $course = array();
@@ -287,6 +311,7 @@
         }
         return $course;
     }
+    */
 
     // fetch instructor name, email and faculty id for each instructor
     function fetchInstructorData($conn) {
