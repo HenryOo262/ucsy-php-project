@@ -6,6 +6,7 @@ CREATE USER 'student'@'localhost' IDENTIFIED BY 'stud2022';
 
 GRANT SELECT ON project0.user TO 'validator'@'localhost';
 GRANT SELECT ON project0.role TO 'validator'@'localhost';
+
 /*
 GRANT SELECT ON project0.course TO 'validator'@'localhost';
 GRANT SELECT ON project0.qgroup TO 'validator'@'localhost';

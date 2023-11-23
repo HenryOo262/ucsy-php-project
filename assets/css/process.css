@@ -8,6 +8,8 @@ body {
     background-color: #f4f4f4;
 }
 
+/* login class is used for login and search records */
+
 .login {
     position: absolute;
     top: 50%;
@@ -19,10 +21,7 @@ body {
     align-items: center;
     justify-content: center;
     
-    min-height: 235px;
     height: auto;
-    min-width: 320px;
-    max-width: 412px;
     width: 338px;
 
     padding: 36px;
@@ -34,6 +33,15 @@ body {
     border: 1px solid rgba(0,0,0,0.4);
 }
 
+@media screen and (max-width:600px) {
+    .login {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+/* login class is used for create records */
+
 .process-wrapper {
     position: absolute;
     top: 50%;
@@ -44,10 +52,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 
-    min-height: 235px;
     height: auto;
-    min-width: 600px;
-    max-width: 770px;
     width: 750px;
 
     background-color: white;
@@ -59,6 +64,17 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+}
+
+@media screen and (max-width:600px) {
+    .process-wrapper {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .process {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 h2 {
