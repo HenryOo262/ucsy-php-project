@@ -21,7 +21,7 @@
         $academicYear = mysqli_real_escape_string($conn, $_POST["academicYear"]);
         $semester     = mysqli_real_escape_string($conn, $_POST["semester"]);
         $course       = mysqli_real_escape_string($conn, $_POST["course$semester"]);
-        $comment      = mysqli_real_escape_string($conn, $_POST["comment"]);
+        $comment      = trim(mysqli_real_escape_string($conn, $_POST["comment"]));
 
         // question count
         $count = ($conn->query("SELECT * FROM question"))->num_rows;
@@ -100,9 +100,11 @@
             $conn->query($updateQuery);
         }
 
-        // insert comment
-        $insertCommentQuery = "INSERT INTO comment(teaches_id,comment) VALUES ($teachesID,'$comment')";
-        $result = $conn->query($insertCommentQuery);
+        // insert comment if not empty
+        if(!empty($comment)) {
+            $insertCommentQuery = "INSERT INTO comment(teaches_id,comment) VALUES ($teachesID,'$comment')";
+            $result = $conn->query($insertCommentQuery);
+        }
     } catch (Exception $e) {
         echo $e->getMessage();
     }

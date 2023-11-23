@@ -9,16 +9,23 @@ const course = [];
 // Index of currently visible box
 var currentlyVisible = 0;
 
-// semester one's box is in index 0
-// semester nine's box is in index 8, etc
-for(i=0; i<=8; i++) {
-    course[i] = document.querySelector(`#course${i+1}`);
-    // all boxes are hidden except semester one's box when page is 
-    // loaded
-    if(i!=0){
-        course[i].classList.add('hide');
+
+document.addEventListener("DOMContentLoaded",()=>{
+    // semester one's box is in index 0
+    // semester nine's box is in index 8, etc
+    for(i=0; i<=8; i++) {
+        console.log("runner")
+        course[i] = document.querySelector(`#course${i+1}`);
+        // all boxes are hidden except semester one's box when page is 
+        // loaded
+        if(i!=0){
+            course[i].classList.add('hide');
+        }
     }
-}
+})
+
+// values do not reset when using browser goback button
+window.addEventListener("pageshow",populator)
 
 function populator() {
     // populate the boxes based on selected semester

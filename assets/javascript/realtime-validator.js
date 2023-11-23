@@ -7,16 +7,20 @@ const instructorName = document.querySelector('#instructorName')
 const btn = document.querySelector('#btn')
 
 // set two flags to false when page is loaded 
-var flag1 = false
-var flag2 = false
+var flag1 
+var flag2 
 
 // call the checkButton when page is loaded so the button is disabled
-document.addEventListener("DOMContentLoaded",checkButton);
+document.addEventListener("DOMContentLoaded",()=>{
+    flag1 = false
+    flag2 = false
+    checkButton()
+});
 
 // empty the values when page is backwarded
 window.addEventListener('pageshow',(event)=>{
-        academicYear.value = ''
-        instructorName.value = ''
+        validateAcademicYear()
+        validateInstructorName()
 });
 
 const patternAcademicYear = /[2][0][\d][\d]-[2][0][\d][\d]/
