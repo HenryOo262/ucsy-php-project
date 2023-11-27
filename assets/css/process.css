@@ -33,14 +33,7 @@ body {
     border: 1px solid rgba(0,0,0,0.4);
 }
 
-@media screen and (max-width:600px) {
-    .login {
-        width: 100vw;
-        height: 100vh;
-    }
-}
-
-/* login class is used for create records */
+/* process-wrapper class is used for create records */
 
 .process-wrapper {
     position: absolute;
@@ -60,6 +53,8 @@ body {
     border: 1px solid rgba(0,0,0,0.4);
 }
 
+/* process class is used for input fields inside process-wrapper class */
+
 .process {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -67,7 +62,7 @@ body {
 }
 
 @media screen and (max-width:600px) {
-    .process-wrapper {
+    .login, .process-wrapper {
         width: 100vw;
         height: 100vh;
     }
@@ -188,5 +183,25 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
+    background-color: #039bbd;
+}
+
+.logout-btn-wrapper {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    bottom: 5%;
+}
+
+.logout-btn {
+    background-color: #04acd2;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
     background-color: #039bbd;
 }

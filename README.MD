@@ -26,7 +26,7 @@ Replace databaseName with the name of your database.
 
 Install PHP 8.0 or above.
 
-Open the terminal.
+Open the terminal and reach to the project root folder.
 
 Run the server using PHP: `php -S localhost:8000`
 
@@ -36,6 +36,11 @@ Open your web browser and navigate to `http://localhost:8000/`
 
 In MySQL workbench, create user "admin" and grant "DBA Role" in Administrative Roles. 
 
+If additional "DBA users" are to be added, please make sure to create their own accounts in "user table" in the database. That means, each 
+"DBA user" must have an "admin account" in the database with the same name and password as it has on the database server.
+
+The two non-DBA users are "student" and "validator" which have limited accesses.
+
 Run the mysql scripts included in the project directory.
 
-The scripts in "rand.sql" create other necessary users and grant privileges to them. It is recommended to run each statement of "rand.sql" at a time.
+The scripts in "grant.sql" create necessary users and grant privileges to them.

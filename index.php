@@ -31,6 +31,10 @@
             renderForm();
             break;
 
+        case "/next":
+            renderNext();
+            break;
+
         case "/admin":
             renderAdmin();
             break;
@@ -75,26 +79,25 @@
                 }
 
                 // declare arrays 
-                $courses    = array();
-                $questions  = array();
-                $qgroups    = array();
-                $qgroups_id = array();
+                $courses     = array();
+                $questions   = array();
+                $qgroups     = array();
+                $qgroups_id  = array();
+                $instructors = array();
 
                 // burmese numbers
                 $mmnum = NUM_MAP;
 
-                // fetch courses for each semester
-                // there are 9 semesters as fixed values
-                for($i=1; $i<=9; $i+=1) {
-                    $temp = array();
-                    $result = $conn->query("SELECT course_id FROM course_semester WHERE semester_id='$i'");
-                    if($result->num_rows > 0){
-                        while($row = $result->fetch_assoc()) {
-                            array_push($temp,$row["course_id"]);
-                        }
+                // fetch courses 
+                $result = $conn->query("SELECT course_id, semester_id FROM course_semester");
+                if($result->num_rows > 0){
+                    while($row = $result->fetch_assoc()) {
+                        $temp = array();
+                        $temp["course_id"] = $row["course_id"];
+                        $temp["semester_id"] = $row["semester_id"];
+                        array_push($courses,$temp);
                     }
-                    $courses[$i-1] = $temp;
-                }
+                } 
 
                 // fetch question groups
                 $result = $conn->query("SELECT * FROM qgroup");
@@ -111,6 +114,17 @@
                         array_push($temp,$row["question"]);
                     }
                     array_push($questions, $temp);
+                }
+
+                // fetch instructors records 
+                $year = (date('Y')).'-'.(date('Y')+1);
+                $result = $conn->query("SELECT instructor_name, course_id, semester_id FROM teaches JOIN instructor WHERE instructor.instructor_id = teaches.instructor_id AND academicYear = '$year'");
+                while($row = $result->fetch_assoc()) {
+                    $temp = array();
+                    $temp["instructor_name"] = $row["instructor_name"];
+                    $temp["course_id"]       = $row["course_id"];
+                    $temp["semester_id"]     = $row["semester_id"];
+                    array_push($instructors,$temp);
                 }
 
                 require "./public/views/form.php";
@@ -144,6 +158,16 @@
             exit;
         } else if($_SESSION["student_logged"]) {
             http_response_code(403);
+        } else {
+            header("Location: /");
+            exit;
+        }
+    }
+
+    function renderNext() {
+        if($_SESSION["logged"] || $_SESSION["student_logged"]) {
+            require "./public/views/next.php";
+            exit;
         } else {
             header("Location: /");
             exit;
@@ -296,22 +320,6 @@
         }
         return $course;
     }
-
-     // fetch all the courses 
-     /*
-     function fetchCourse($conn) {
-        try {
-            $result = $conn->query("SELECT course_id FROM course");
-            $course = array();
-            while($row = $result->fetch_assoc()) {
-                array_push($course,$row["course_id"]);
-            }
-        } catch(Exception $e) {
-            echo $e->getMessage();
-        }
-        return $course;
-    }
-    */
 
     // fetch instructor name, email and faculty id for each instructor
     function fetchInstructorData($conn) {

@@ -9,6 +9,10 @@
         <link rel="icon" type="image/x-icon" href="./assets/image/cufavicon.ico">
         <link rel="stylesheet" href="./assets/css/styles.css">
         <link rel="stylesheet" href="./assets/css/form.css">
+        <script>
+            const instructors = <?php echo json_encode($instructors); ?>;
+            const courses     = <?php echo json_encode($courses); ?>;
+        </script>
     </head>
     <body>
         <?php 
@@ -27,6 +31,11 @@
             <p>မှတ်ချက်။  ။ ဆရာဆရာမများနှင့် ကျောင်း​သူကျောင်းသားများအကြား အရေအသွေးပြည့်ဝ၍ပိုမိုကောင်းမွန်သော သင်ကြား၊သင်ယူမှု ပတ်ဝန်းကျင်တစ်ခုဖြစ်စေရန်နှင့် အကောင်းဆုံး သင်ကြားသင်ယူမှုပုံစံရရှိစေရန်အတွက် ကျောင်းသူကျောင်းသားများထံမှ သုံးသပ်မှုကို ရှာဖွေရန် ရန်ကုန်ကွန်ပျူတာတက္ကသိုလ်မှ ဤမေးခွန်းလွှာကိုပြုလုပ်ထားသည်။</p>
         </header>
 
+        <!-- logout button -->
+        <form action="./src/login_handler.php" method="POST" class="logout-btn-wrapper">
+            <button class="logout-btn" type="submit" name="logButton" value="logout" onclick="return showConfirmation('Are you sure you want to log out ?')"> Log Out </button>
+        </form>
+
         <!-- Assessment Form -->
         <div>
             <form method="POST" action="./src/form_handler.php">
@@ -35,7 +44,7 @@
                 <div class="box1-wrapper">
                     <div>
                         <label for="semester"> သင်တန်းနှစ် : </label>
-                        <select name="semester" id="semester" onchange="populator()">
+                        <select name="semester" id="semester" onchange="populator(); instpopulator()">
                             <?php
                                 for($i = 1; $i <= 9; $i += 1){
                                     echo "<option value='$i'> Semester $i </option>";
@@ -44,32 +53,17 @@
                         </select>
                     </div>
                     <div>
-                        <label for="academicYear"> ပညာသင်နှစ် : </label>
-                        <?php echo "<input type='text' name='academicYear' id='academicYear' list='academicYears' oninput='validateAcademicYear()' placeholder='$year-$next' required>" ?>
-                        <datalist id="academicYears">
-                        <?php 
-                            for($i=date('Y'); $i>=1950; $i-=1) {
-                                $nextYear = $i+1;
-                                echo "<option value='$i-$nextYear'> $i-$nextYear </option>";
-                            }
-                        ?>
-                    </datalist>
+                        <label> ဘာသာရပ် : </label>
+                        <select name='course' id='course' onchange="instpopulator()" required>
+                        </select>
                     </div>
                     <div>
                         <label for="instructorName"> ဆရာ၊ဆရာမအမည် : </label>
-                        <input name="instructorName" id="instructorName" type="text" oninput="validateInstructorName()" placeholder="e.g, John Doe" required>
+                        <select name="instructorName" id="instructorName" type="text" required> </select>
                     </div>
                     <div>
-                        <label> ဘာသာရပ် : </label>
-                        <?php   
-                            for($i=1; $i<=9; $i+=1) {
-                                echo "<select name='course$i' id='course$i'>";
-                                    for($j = 0; $j < count($courses[$i-1]); $j += 1) {
-                                        echo "<option value='".$courses[$i-1][$j]."'>".$courses[$i-1][$j]."</option>";
-                                    }
-                                echo "</select>";
-                            }
-                        ?>
+                        <label for="academicYear"> ပညာသင်နှစ် : </label>
+                        <?php echo "<input type='text' name='academicYear' id='academicYear' value=".$year."-".$next." onfocus='this.blur()' readonly required>" ?>
                     </div>
                 </div>
                 <!-- Instructor Information Ends -->
@@ -137,6 +131,8 @@
         </div>
         <!-- Assessment Form ends -->
     </body>
+    <script src="./assets/javascript/submit-confirmation.js"> </script>  
     <script src="./assets/javascript/realtime-validator.js"> </script>  
-    <script src="./assets/javascript/course-populator.js"> </script>  
+    <script src="./assets/javascript/course-populator.js"> </script> 
+    <script src="./assets/javascript/instructor-populator.js"> </script>  
 </html>

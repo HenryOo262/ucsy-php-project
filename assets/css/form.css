@@ -106,6 +106,28 @@
     resize: none;
 }
 
+/* logout button */
+
+.logout-btn-wrapper {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    right: 0%;
+    top: 5%;
+}
+
+.logout-btn {
+    background-color: #04acd2;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #039bbd;
+}
+
 @media screen and (max-width:760px) {
     .header-wrapper, .box1-wrapper, .column-wrapper {
         font-size: 12px;
@@ -120,6 +142,11 @@
     }
 
     .comment-wrapper, .comment-wrapper textarea{
+        font-size: 12px;
+    }
+
+    .logout-btn {
+        padding: 5px 10px;
         font-size: 12px;
     }
 }

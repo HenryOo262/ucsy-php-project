@@ -21,13 +21,13 @@
             <div class="process">
                 <div class="input-wrapper">
                     <label for="email">
-                        <input type="email" name="email" id="email" list="emails" oninput="dataCorrection()" required>
+                        <input type="email" name="email" id="email" list="emails" oninput="dataCorrection()" autocomplete="off" required>
                         <datalist name="emails" id="emails"> </datalist>
                     </label>
                 </div>
                 <div class="input-wrapper">
                     <label for="instructorName">
-                        <input type="text" name="instructorName" id="instructorName" list="instructors" oninput="emailSuggestion()" required>
+                        <input type="text" name="instructorName" id="instructorName" list="instructors" oninput="emailSuggestion()" autocomplete="off" required>
                         <datalist id="instructors">
                             <?php 
                                 for($i=0; $i<count($instructor); $i+=1) {
@@ -50,10 +50,10 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="academicYear">
-                        <input type="text" name="academicYear" list="academicYears" required> 
+                        <input type="text" name="academicYear" list="academicYears" autocomplete="off" required> 
                         <datalist id="academicYears">
                             <?php 
-                                for($i=date('Y'); $i>=1950; $i-=1) {
+                                for($i=date('Y'); $i>=2020; $i-=1) {
                                     $nextYear = $i+1;
                                     echo "<option value='$i-$nextYear'> $i-$nextYear </option>";
                                 }
@@ -63,7 +63,7 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="semester">
-                        <input type="text" name="semester" list="semesters" required>
+                        <input type="text" name="semester" list="semesters" autocomplete="off" required>
                         <datalist id="semesters">
                             <?php 
                                 for($i=1; $i<=9; $i+=1) {
@@ -75,7 +75,7 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="course"> 
-                        <input type="text" name="course" list="courses" required> 
+                        <input type="text" name="course" list="courses" autocomplete="off" required> 
                         <datalist id="courses">
                             <?php 
                                 for($i=0; $i<count($course); $i+=1) {
@@ -89,6 +89,9 @@
             <div class="flex row">
                 <button type="submit" name="submit_button" value="create" onclick="return showConfirmation('Are you sure you want to create a new record ?')"> Create </button>
             </div>
+        </form>
+        <form action="../src/login_handler.php" method="POST" class="logout-btn-wrapper flex row">
+            <button class="logout-btn" type="submit" name="logButton" value="logout" onclick="return showConfirmation('Are you sure you want to log out ?')"> Log Out </button>
         </form>
     </body>
     <script src="../assets/javascript/submit-confirmation.js"> </script>

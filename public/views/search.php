@@ -17,10 +17,10 @@
             </div>
             <div class="input-wrapper">
                 <label for="academicYear">
-                    <input type="text" name="academicYear" list="academicYears"> 
+                    <input type="text" name="academicYear" list="academicYears" autocomplete="off"> 
                     <datalist id="academicYears">
                         <?php 
-                            for($i=date('Y'); $i>=1950; $i-=1) {
+                            for($i=date('Y'); $i>=2020; $i-=1) {
                                 $nextYear = $i+1;
                                 echo "<option value='$i-$nextYear'> $i-$nextYear </option>";
                             }
@@ -30,7 +30,7 @@
             </div>
             <div class="input-wrapper">
                 <label for="semester">
-                    <input type="text" name="semester" list="semesters">
+                    <input type="text" name="semester" list="semesters" autocomplete="off">
                     <datalist id="semesters">
                         <?php 
                             for($i=1; $i<=9; $i+=1) {
@@ -44,5 +44,9 @@
                 <button type="submit" name="submit_button" value="search"> Search </button>
             </div>
         </form>
+        <form action="../src/login_handler.php" method="POST" class="logout-btn-wrapper flex row">
+            <button class="logout-btn" type="submit" name="logButton" value="logout" onclick="return showConfirmation('Are you sure you want to log out ?')"> Log Out </button>
+        </form>
     </body>
+    <script src="../assets/javascript/submit-confirmation.js"> </script>
 </html>

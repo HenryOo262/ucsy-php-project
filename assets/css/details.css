@@ -56,3 +56,9 @@ h2 {
     padding: 10px 20px;
     margin: 10px;
 }
+
+@media screen and (max-width:600px) {
+    .details, .comment-wrapper {
+        font-size: 12px;
+    }
+}

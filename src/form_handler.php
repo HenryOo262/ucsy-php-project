@@ -17,11 +17,11 @@
         }
 
         // form data
-        $instructor   = mysqli_real_escape_string($conn, $_POST["instructorName"]);
-        $academicYear = mysqli_real_escape_string($conn, $_POST["academicYear"]);
-        $semester     = mysqli_real_escape_string($conn, $_POST["semester"]);
-        $course       = mysqli_real_escape_string($conn, $_POST["course$semester"]);
-        $comment      = trim(mysqli_real_escape_string($conn, $_POST["comment"]));
+        $instructor   = $conn->real_escape_string($_POST["instructorName"]);
+        $academicYear = $conn->real_escape_string($_POST["academicYear"]);
+        $semester     = $conn->real_escape_string($_POST["semester"]);
+        $course       = $conn->real_escape_string($_POST["course"]);
+        $comment      = trim($conn->real_escape_string($_POST["comment"]));
 
         // question count
         $count = ($conn->query("SELECT * FROM question"))->num_rows;
@@ -55,7 +55,7 @@
         if ($resultTeaches->num_rows == 0) {
             // ADMIN MUST UPDATE THE TEACHES TABLE PRIOR TO STUDENTS' EVALUATION
             // if record doesn't exist
-            die("ERROR - admin hasn't updated or subject and instructor mismatch.");
+            die("ERROR - admin hasn't updated.");
         } else {
             // if exists - get teachesID
             $row = $resultTeaches->fetch_assoc();
@@ -112,6 +112,6 @@
     // close connection
     $conn->close();
 
-    echo "Evaluation successfully submitted. Thanks for participating";
+    header("Location: /next");
     exit;
  ?>
