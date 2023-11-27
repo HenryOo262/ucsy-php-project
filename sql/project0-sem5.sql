@@ -6,12 +6,11 @@ insert into instructor values
 (3, 'Khin San Aye',     'FCST', 'ksa@ucsy.edu.mm'),
 (4, 'Ange Htwe',        'FCS',  'aht@ucsy.edu.mm'),
 (5, 'May Theingi Kyaw', 'FIS',  'mtk@ucsy.edu.mm'),
-(6, 'Aye Aye Maw',      'FCS',   'aam@ucsy.edu.mm'),
+(6, 'Aye Aye Maw',      'FCS',  'aam@ucsy.edu.mm'),
 (7, 'Hsu Myat Mo',      'FIS',  'hmo@ucsy.edu.mm'),
 (8, 'Nwet Nwet Than',   'DITSM','nnt@ucsy.edu.mm'),
 (9, 'Sandi Winn Aye',   'DITSM','swa@ucsy.edu.mm'),
-
-(10,'Khin Aye Myint',       'FC','kam@ucsy.edu.mm');
+(10,'Khin Aye Myint',   'FC',   'kam@ucsy.edu.mm');
 
 insert into course values 
 ('CM-103',   'Differential Equations and Numerical Analysis', 'FC'),
@@ -44,6 +43,4 @@ insert into teaches values
 (106,6,'2023-2024','CS-302',5),
 (107,7,'2023-2024','IS-102',5),
 (108,8,'2023-2024','ITSM-301',5),
-(109,9,'2023-2024','ITSM-204',5),
-
-(110,10,'2023-2024','CM-103',5);
+(109,9,'2023-2024','ITSM-204',5);

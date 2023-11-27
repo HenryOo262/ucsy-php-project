@@ -89,9 +89,14 @@
             </div>
             <input type="text" name="teachesID" class="hidden-input" <?php echo "value='".$data['teachesID']."'" ?> >
         </form>
-        <form action="../src/login_handler.php" method="POST" class="logout-btn-wrapper flex row">
-            <button class="logout-btn" type="submit" name="logButton" value="logout" onclick="return showConfirmation('Are you sure you want to log out ?')"> Log Out </button>
-        </form>
+        <div class="minimenu-wrapper">
+            <a href="/admin">
+                <div class="dashboard-button"> Dashboard </div>
+            </a>
+            <form action="../src/login_handler.php" method="POST">
+                <button type="submit" name="logButton" value="logout" onclick="return showConfirmation('Are you sure you want to log out ?')"> Log Out </button>
+            </form>
+        </div>
     </body>
     <script src="../../assets/javascript/data-suggestion.js"> </script>
     <script src="../../assets/javascript/submit-confirmation.js"> </script>

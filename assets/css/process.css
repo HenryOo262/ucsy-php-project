@@ -62,7 +62,7 @@ body {
 }
 
 @media screen and (max-width:600px) {
-    .login, .process-wrapper {
+    .login, .process-wrapper{
         width: 100vw;
         height: 100vh;
     }
@@ -172,36 +172,43 @@ label[for="course"]::after {
     content: "Subject";
 }
 
-button[type="submit"] {
+button[type="submit"], .dashboard-button {
     background-color: #04acd2;
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
 
+    font-size: 14px;
     margin-top: 20px;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover, .dashboard-button:hover {
     background-color: #039bbd;
 }
 
-.logout-btn-wrapper {
+a {
+    text-decoration: none;
+}
+
+.minimenu-wrapper {
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
     bottom: 5%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
 }
 
-.logout-btn {
-    background-color: #04acd2;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-}
+@media screen and (max-width:600px) {
+    .minimenu-wrapper {
+        bottom: 0%;
+    }
 
-.logout-btn:hover {
-    background-color: #039bbd;
+    .dashboard-button, .minimenu-wrapper > form > button {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
 }
