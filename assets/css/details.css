@@ -44,17 +44,17 @@
     margin: 20px;
 }
 
+.comment-header {
+    background-color: #40e0d0;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
 .comment{
     background-color: #dcdcdc;
     border-radius: 4px;
     padding: 10px 20px;
-    margin: 10px;
-}
-
-h2 {
-    background-color: #40e0d0;
-    padding: 10px 20px;
-    margin: 10px;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width:600px) {

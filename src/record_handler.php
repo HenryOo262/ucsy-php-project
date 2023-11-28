@@ -250,12 +250,12 @@
             $details = array();
             while ($row = $result->fetch_assoc()) {
                 $temp = array();
-                array_push($temp, $row['question']);
-                array_push($temp, $row['totally_disagree']);
-                array_push($temp, $row['disagree']);
-                array_push($temp, $row['neutral']);
-                array_push($temp, $row['agree']);
-                array_push($temp, $row['totally_agree']);
+                $temp['question']         = $row['question'];
+                $temp['totally_disagree'] = $row['totally_disagree'];
+                $temp['disagree']         = $row['disagree'];
+                $temp['neutral']          = $row['neutral'];
+                $temp['agree']            = $row['agree'];
+                $temp['totally_agree']    = $row['totally_agree'];
                 array_push($details, $temp);
             }
 

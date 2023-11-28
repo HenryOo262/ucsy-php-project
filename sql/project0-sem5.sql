@@ -9,8 +9,7 @@ insert into instructor values
 (6, 'Aye Aye Maw',      'FCS',  'aam@ucsy.edu.mm'),
 (7, 'Hsu Myat Mo',      'FIS',  'hmo@ucsy.edu.mm'),
 (8, 'Nwet Nwet Than',   'DITSM','nnt@ucsy.edu.mm'),
-(9, 'Sandi Winn Aye',   'DITSM','swa@ucsy.edu.mm'),
-(10,'Khin Aye Myint',   'FC',   'kam@ucsy.edu.mm');
+(9, 'Sandi Winn Aye',   'DITSM','swa@ucsy.edu.mm');
 
 insert into course values 
 ('CM-103',   'Differential Equations and Numerical Analysis', 'FC'),
