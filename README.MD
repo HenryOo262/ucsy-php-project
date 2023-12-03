@@ -36,14 +36,14 @@ Created accounts -
 
 Admins: 
 
-username: admin  password: ucsy2023
-username: admin2 password: ucsy2024
+username: admin  password: ucsy2023 <br>
+username: admin2 password: ucsy2024 <br>
 
 Students: 
 
-username: 21370  password: hello
-username: 41650  password: hellomm
-username: henry  password: hellohi
+username: 21370  password: hello   <br>
+username: 41650  password: hellomm <br> 
+username: henry  password: hellohi <br>
 
 ## Database Setup 
 
