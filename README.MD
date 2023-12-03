@@ -32,6 +32,19 @@ Run the server using PHP: `php -S localhost:8000`
 
 Open your web browser and navigate to `http://localhost:8000/`
 
+Created accounts - 
+
+Admins: 
+
+username: admin  password: ucsy2023
+username: admin2 password: ucsy2024
+
+Students: 
+
+username: 21370  password: hello
+username: 41650  password: hellomm
+username: henry  password: hellohi
+
 ## Database Setup 
 
 In MySQL workbench, create user "admin" and grant "DBA Role" in Administrative Roles. 

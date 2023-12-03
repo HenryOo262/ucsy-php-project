@@ -1,15 +1,15 @@
 use project0;
 
 insert into instructor values 
-(1, 'Yu Paing',    'FC',    'yyp@ucsy.edu.mm'),
-(2, 'Amy',         'FCST',  'atu@ucsy.edu.mm'),
-(3, 'Khin Aye',    'FCST',  'ksa@ucsy.edu.mm'),
-(4, 'Ange',        'FCS',   'aht@ucsy.edu.mm'),
-(5, 'May Kyaw',    'FIS',   'mtk@ucsy.edu.mm'),
-(6, 'Aye Maw',     'FCS',   'aam@ucsy.edu.mm'),
-(7, 'Hsu Mo',      'FIS',   'hmo@ucsy.edu.mm'),
-(8, 'Nwet Than',   'DITSM', 'nnt@ucsy.edu.mm'),
-(9, 'Sandi Aye',   'DITSM', 'swa@ucsy.edu.mm');
+(1, 'Yu Paing',    'FC',    'yp@ucsy.edu.mm'),
+(2, 'Amy',         'FCST',  'am@ucsy.edu.mm'),
+(3, 'Khin Aye',    'FCST',  'ka@ucsy.edu.mm'),
+(4, 'Ange',        'FCS',   'ae@ucsy.edu.mm'),
+(5, 'May Kyaw',    'FIS',   'mk@ucsy.edu.mm'),
+(6, 'Aye Maw',     'FCS',   'am@ucsy.edu.mm'),
+(7, 'Hsu Mo',      'FIS',   'hm@ucsy.edu.mm'),
+(8, 'Nwet Than',   'DITSM', 'nt@ucsy.edu.mm'),
+(9, 'Sandi Aye',   'DITSM', 'sa@ucsy.edu.mm');
 
 insert into course values 
 ('CM-103',   'Differential Equations and Numerical Analysis', 'FC'),
