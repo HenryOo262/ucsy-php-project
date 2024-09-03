@@ -132,7 +132,6 @@
         <!-- Assessment Form ends -->
     </body>
     <script src="./assets/javascript/submit-confirmation.js"> </script>  
-    <script src="./assets/javascript/realtime-validator.js"> </script>  
     <script src="./assets/javascript/course-populator.js"> </script> 
     <script src="./assets/javascript/instructor-populator.js"> </script>  
 </html>

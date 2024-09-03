@@ -4,11 +4,11 @@ insert into role values
 (1,'admin'), (2,'student');
 
 insert into user values 
-('admin','$2y$10$ceDI2qGfgl7prCnOdO2J..pUdQyMR6foh3xI6bDznDxc0JmlW5iv2',1),
-('admin2','$2y$10$Z4J0wASl2T/RfaQXjJ.c2eoWJhmLNt1IfndhyfVwy5hlkM0htUUhW',1),
-('21370','$2y$10$6gZsbqNRhQFCByMkgDVlT.T9c3Nm.Rsp875CTu.bhcvxTCoYBh8ce',2),
-('41650','$2y$10$.7yVuIhMxFJ2BE9An19goOadhf12B/xGf8F60cc9Wn/zpMVy8zvL2',2),
-('henry','$2y$10$ahGj571ga9Ylx8AtGPyOOOQeHz7Yg/V.xUd37O91fGDO4q3o.0xWu',2);
+('admin1','$2y$10$XSToN/nik1kRDv35LoapHOliPVu.4lYSADnqF3VAAt3vsjbc7Emxe',1),
+('admin2','$2y$10$XSToN/nik1kRDv35LoapHOliPVu.4lYSADnqF3VAAt3vsjbc7Emxe',1),
+('21370','$2y$10$RUojZR0m9ZRKoFDFH6L8i.TtrbeciMVxGUsDilbj6lrjfM3hol79G',2),
+('21371','$2y$10$RUojZR0m9ZRKoFDFH6L8i.TtrbeciMVxGUsDilbj6lrjfM3hol79G',2),
+('21372','$2y$10$RUojZR0m9ZRKoFDFH6L8i.TtrbeciMVxGUsDilbj6lrjfM3hol79G',2);
 
 insert into faculty values
 ('FCST','Faculty of Computer Systems and Technologies'),

@@ -4,10 +4,10 @@
     define('DB_NAME', 'project0');
 
     define('VALIDATOR', 'validator');
-    define('VALIDATOR_PASS', 'validator2023');
+    define('VALIDATOR_PASS', 'validator');
 
     define('STUDENT', 'student');
-    define('STUDENT_PASS', 'stud2022');
+    define('STUDENT_PASS', 'student');
 
     $numberMapping = array(
         1 => "၁။",

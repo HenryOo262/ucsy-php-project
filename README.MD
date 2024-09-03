@@ -36,23 +36,27 @@ Created accounts -
 
 Admins: 
 
-username: admin  password: ucsy2023 <br>
-username: admin2 password: ucsy2024 <br>
+username: admin1  password: admin <br>
+username: admin2 password: admin <br>
 
 Students: 
 
-username: 21370  password: hello   <br>
-username: 41650  password: hellomm <br> 
-username: henry  password: hellohi <br>
+username: 21370  password: hello  <br>
+username: 21371  password: hello <br> 
+username: 21372  password: hello <br>
 
 ## Database Setup 
 
+<!--
 In MySQL workbench, create user "admin" and grant "DBA Role" in Administrative Roles. 
 
 If additional "DBA users" are to be added, please make sure to create their own accounts in "user table" in the database. That means, each 
 "DBA user" must have an "admin account" in the database with the same name and password as it has on the database server.
+-->
 
-The two non-DBA users are "student" and "validator" which have limited accesses.
+For admin-level users, each of them have mysql.user account with same username and password from user table. The mysql.user accounts must be given the admin-level privileges
+
+The two non-admin level users are "student" and "validator" which have limited accesses.
 
 Run the mysql scripts included in the project directory.
 

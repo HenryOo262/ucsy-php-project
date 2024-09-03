@@ -1,8 +1,12 @@
 use project0;
 
-CREATE USER 'validator'@'localhost' IDENTIFIED BY 'validator2023';
-CREATE USER 'admin'@'localhost'     IDENTIFIED BY 'ucsy2023';
-CREATE USER 'student'@'localhost'   IDENTIFIED BY 'stud2022';
+CREATE USER 'validator'@'localhost' IDENTIFIED BY 'validator';
+CREATE USER 'admin1'@'localhost'    IDENTIFIED BY 'admin';
+CREATE USER 'admin2'@'localhost'    IDENTIFIED BY 'admin';
+CREATE USER 'student'@'localhost'   IDENTIFIED BY 'student';
+
+GRANT ALL PRIVILEGES ON *.* TO 'admin1'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'admin2'@'localhost';
 
 GRANT SELECT ON project0.user TO 'validator'@'localhost';
 GRANT SELECT ON project0.role TO 'validator'@'localhost';
