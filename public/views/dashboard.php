@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
     <body class="school-bg">
+        <div class="overlay"> </div>
         <div class="menu-wrapper">
             <a class="menu-item" href="/admin/search">
                 <div class="icon flex col">

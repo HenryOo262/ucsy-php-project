@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="./assets/css/process.css">
     </head>
     <body class="school-bg">
+        <div class="overlay"> </div>
         <form action="./src/login_handler.php" method="POST" class="login">
             <div class="flex row">
                 <h2> Login </h2>

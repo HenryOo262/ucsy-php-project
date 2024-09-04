@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="../assets/css/process.css">
     </head>
     <body class="school-bg">
+        <div class="overlay"> </div>
         <form action="../src/record_handler.php" method="GET" class="login">
             <div class="flex row">
                 <h2> View Records </h2>

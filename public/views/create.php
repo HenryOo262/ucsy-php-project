@@ -14,6 +14,7 @@
         </script>
     </head>
     <body class="school-bg">
+        <div class="overlay"> </div>
         <form action="../src/record_handler.php" method="POST" class="process-wrapper">
             <div class="flex row">
                 <h2> Create Records </h2>
